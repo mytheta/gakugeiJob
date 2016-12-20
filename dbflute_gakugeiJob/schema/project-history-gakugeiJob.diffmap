@@ -1,0 +1,464 @@
+map:{
+    ; 2016/12/20 20:09:52 = map:{
+        ; diffDate = 2016/12/20 20:09:52
+        ; tableDiff = map:{
+            ; admin = map:{
+                ; tableName = admin
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; admin_pass1 = map:{
+                        ; columnName = admin_pass1
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 256
+                            ; previous = 12
+                        }
+                    }
+                    ; admin_pass2 = map:{
+                        ; columnName = admin_pass2
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 256
+                            ; previous = 12
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/12/20 09:07:33 = map:{
+        ; diffDate = 2016/12/20 09:07:33
+        ; tableDiff = map:{
+            ; enterprise = map:{
+                ; tableName = enterprise
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; enterprise_id = map:{
+                        ; columnName = enterprise_id
+                        ; diffType = ADD
+                    }
+                    ; company_id = map:{
+                        ; columnName = company_id
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = enterprise_id
+                            ; previous = company_id
+                        }
+                    }
+                }
+            }
+            ; enterprise_offer = map:{
+                ; tableName = enterprise_offer
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; enterprise_id = map:{
+                        ; columnName = enterprise_id
+                        ; diffType = ADD
+                    }
+                    ; company_id = map:{
+                        ; columnName = company_id
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; enterprise_offer_ibfk_1(new) = map:{
+                        ; constraintName = enterprise_offer_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                    ; enterprise_offer_ibfk_1(old) = map:{
+                        ; constraintName = enterprise_offer_ibfk_1(old)
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; enterprise_id = map:{
+                        ; constraintName = enterprise_id
+                        ; diffType = ADD
+                    }
+                    ; company_id = map:{
+                        ; constraintName = company_id
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/12/19 23:52:28 = map:{
+        ; diffDate = 2016/12/19 23:52:28
+        ; tableDiff = map:{
+            ; login = map:{
+                ; tableName = login
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; user_pass = map:{
+                        ; columnName = user_pass
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 256
+                            ; previous = 12
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/12/19 22:15:13 = map:{
+        ; diffDate = 2016/12/19 22:15:13
+        ; tableDiff = map:{
+            ; school = map:{
+                ; tableName = school
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; kinds = map:{
+                        ; columnName = kinds
+                        ; diffType = ADD
+                    }
+                    ; class = map:{
+                        ; columnName = class
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/12/15 19:39:54 = map:{
+        ; diffDate = 2016/12/15 19:39:54
+        ; tableDiff = map:{
+            ; enterprise_offer = map:{
+                ; tableName = enterprise_offer
+                ; diffType = ADD
+            }
+            ; admin = map:{
+                ; tableName = admin
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; admin_ibfk_1(new) = map:{
+                        ; constraintName = admin_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; enterprise = map:{
+                ; tableName = enterprise
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; enterprise_ibfk_1(new) = map:{
+                        ; constraintName = enterprise_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; user_id = map:{
+                        ; constraintName = user_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; enterprise_aplicant = map:{
+                ; tableName = enterprise_aplicant
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; student_id = map:{
+                        ; columnName = student_id
+                        ; diffType = ADD
+                    }
+                    ; user_id = map:{
+                        ; columnName = user_id
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = job_offer_id, student_id
+                            ; previous = job_offer_id, user_id
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; enterprise_aplicant_ibfk_1(new) = map:{
+                        ; constraintName = enterprise_aplicant_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                    ; enterprise_aplicant_ibfk_2(new) = map:{
+                        ; constraintName = enterprise_aplicant_ibfk_2(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; student_id = map:{
+                        ; constraintName = student_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; enterprise_favo = map:{
+                ; tableName = enterprise_favo
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; student_id = map:{
+                        ; columnName = student_id
+                        ; diffType = ADD
+                    }
+                    ; user_id = map:{
+                        ; columnName = user_id
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = job_offer_id, student_id
+                            ; previous = job_offer_id, user_id
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; enterprise_favo_ibfk_1(new) = map:{
+                        ; constraintName = enterprise_favo_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                    ; enterprise_favo_ibfk_2(new) = map:{
+                        ; constraintName = enterprise_favo_ibfk_2(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; student_id = map:{
+                        ; constraintName = student_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; login = map:{
+                ; tableName = login
+                ; diffType = CHANGE
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = user_id
+                            ; previous = role
+                        }
+                    }
+                }
+            }
+            ; school = map:{
+                ; tableName = school
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; school_ibfk_1(new) = map:{
+                        ; constraintName = school_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; user_id = map:{
+                        ; constraintName = user_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; school_aplicant = map:{
+                ; tableName = school_aplicant
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; student_id = map:{
+                        ; columnName = student_id
+                        ; diffType = ADD
+                    }
+                    ; user_id = map:{
+                        ; columnName = user_id
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = school_offer_id, student_id
+                            ; previous = school_offer_id, user_id
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; school_aplicant_ibfk_1(new) = map:{
+                        ; constraintName = school_aplicant_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                    ; school_aplicant_ibfk_2(new) = map:{
+                        ; constraintName = school_aplicant_ibfk_2(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; student_id = map:{
+                        ; constraintName = student_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; school_favo = map:{
+                ; tableName = school_favo
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; student_id = map:{
+                        ; columnName = student_id
+                        ; diffType = ADD
+                    }
+                    ; user_id = map:{
+                        ; columnName = user_id
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = school_offer_id, student_id
+                            ; previous = school_offer_id, user_id
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; school_favo_ibfk_1(new) = map:{
+                        ; constraintName = school_favo_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                    ; school_favo_ibfk_2(new) = map:{
+                        ; constraintName = school_favo_ibfk_2(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; student_id = map:{
+                        ; constraintName = student_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; school_offer = map:{
+                ; tableName = school_offer
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; school_offer_ibfk_1(new) = map:{
+                        ; constraintName = school_offer_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; school_id = map:{
+                        ; constraintName = school_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; student = map:{
+                ; tableName = student
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; student_id = map:{
+                        ; columnName = student_id
+                        ; diffType = ADD
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = student_id
+                            ; previous = user_id
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; student_ibfk_1(new) = map:{
+                        ; constraintName = student_ibfk_1(new)
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; user_id = map:{
+                        ; constraintName = user_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; entereprise_offer = map:{
+                ; tableName = entereprise_offer
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2016/12/15 01:32:47 = map:{
+        ; diffDate = 2016/12/15 01:32:47
+        ; tableCount = map:{
+            ; next = 11
+            ; previous = 1
+        }
+        ; tableDiff = map:{
+            ; admin = map:{
+                ; tableName = admin
+                ; diffType = ADD
+            }
+            ; entereprise_offer = map:{
+                ; tableName = entereprise_offer
+                ; diffType = ADD
+            }
+            ; enterprise = map:{
+                ; tableName = enterprise
+                ; diffType = ADD
+            }
+            ; enterprise_aplicant = map:{
+                ; tableName = enterprise_aplicant
+                ; diffType = ADD
+            }
+            ; enterprise_favo = map:{
+                ; tableName = enterprise_favo
+                ; diffType = ADD
+            }
+            ; login = map:{
+                ; tableName = login
+                ; diffType = ADD
+            }
+            ; school = map:{
+                ; tableName = school
+                ; diffType = ADD
+            }
+            ; school_aplicant = map:{
+                ; tableName = school_aplicant
+                ; diffType = ADD
+            }
+            ; school_favo = map:{
+                ; tableName = school_favo
+                ; diffType = ADD
+            }
+            ; school_offer = map:{
+                ; tableName = school_offer
+                ; diffType = ADD
+            }
+            ; student = map:{
+                ; tableName = student
+                ; diffType = ADD
+            }
+            ; task_content = map:{
+                ; tableName = task_content
+                ; diffType = DELETE
+            }
+        }
+    }
+}

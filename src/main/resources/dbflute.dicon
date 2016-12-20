@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+    "http://www.seasar.org/dtd/components21.dtd">
+
+<components namespace="dbflute">
+    <include path="j2ee.dicon"/>
+
+    <!-- The components of DBFlute Runtime. -->
+    <component name="introduction" class="gakugeiJob.db.allcommon.DBFluteInitializer"/>
+    <component name="invokerAssistant" class="gakugeiJob.db.allcommon.ImplementedInvokerAssistant"/>
+    <component name="commonColumnAutoSetupper" class="gakugeiJob.db.allcommon.ImplementedCommonColumnAutoSetupper"/>
+    <component name="behaviorSelector" class="gakugeiJob.db.allcommon.ImplementedBehaviorSelector"/>
+    <component name="behaviorCommandInvoker" class="org.seasar.dbflute.bhv.core.BehaviorCommandInvoker"/>
+
+    <!-- The components of Behavior. -->
+    <component name="adminBhv" class="gakugeiJob.db.exbhv.AdminBhv"/>
+    <component name="enterpriseBhv" class="gakugeiJob.db.exbhv.EnterpriseBhv"/>
+    <component name="enterpriseAplicantBhv" class="gakugeiJob.db.exbhv.EnterpriseAplicantBhv"/>
+    <component name="enterpriseFavoBhv" class="gakugeiJob.db.exbhv.EnterpriseFavoBhv"/>
+    <component name="enterpriseOfferBhv" class="gakugeiJob.db.exbhv.EnterpriseOfferBhv"/>
+    <component name="loginBhv" class="gakugeiJob.db.exbhv.LoginBhv"/>
+    <component name="schoolBhv" class="gakugeiJob.db.exbhv.SchoolBhv"/>
+    <component name="schoolAplicantBhv" class="gakugeiJob.db.exbhv.SchoolAplicantBhv"/>
+    <component name="schoolFavoBhv" class="gakugeiJob.db.exbhv.SchoolFavoBhv"/>
+    <component name="schoolOfferBhv" class="gakugeiJob.db.exbhv.SchoolOfferBhv"/>
+    <component name="studentBhv" class="gakugeiJob.db.exbhv.StudentBhv"/>
+</components>
