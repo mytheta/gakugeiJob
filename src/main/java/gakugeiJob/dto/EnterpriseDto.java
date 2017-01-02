@@ -11,6 +11,8 @@ public class EnterpriseDto implements Serializable{
 
 	public String userId = null;
 	
+	public Integer enterpriseId = null;
+	
 	public Boolean isLogin(){
 		if(userId != null){
 			return true;

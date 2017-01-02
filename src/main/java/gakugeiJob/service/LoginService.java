@@ -62,6 +62,10 @@ public class LoginService {
 		return loginBhv.selectList(loginCB);
 	}
 	
+	public Login selectByUserId(String userId){
+		return loginBhv.selectByPKValue(userId);
+	}
+	
 	public void updatePass(String userId, String userPass) throws NoSuchAlgorithmException{
 		Login login = new Login();
 		login.setUserId(userId);

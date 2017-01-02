@@ -17,7 +17,7 @@ import gakugeiJob.db.exentity.*;
  *     school_id
  * 
  * [column]
- *     school_id, user_id, name, kinds, phone_number, url, one_thing
+ *     school_id, user_id, name, kinds, phone_number, mail_address, url, one_thing
  * 
  * [sequence]
  *     
@@ -47,6 +47,7 @@ import gakugeiJob.db.exentity.*;
  * String name = entity.getName();
  * String kinds = entity.getKinds();
  * String phoneNumber = entity.getPhoneNumber();
+ * String mailAddress = entity.getMailAddress();
  * String url = entity.getUrl();
  * String oneThing = entity.getOneThing();
  * entity.setSchoolId(schoolId);
@@ -54,6 +55,7 @@ import gakugeiJob.db.exentity.*;
  * entity.setName(name);
  * entity.setKinds(kinds);
  * entity.setPhoneNumber(phoneNumber);
+ * entity.setMailAddress(mailAddress);
  * entity.setUrl(url);
  * entity.setOneThing(oneThing);
  * = = = = = = = = = =/
@@ -88,6 +90,9 @@ public abstract class BsSchool implements Entity, Serializable, Cloneable {
 
     /** phone_number: {NotNull, VARCHAR(12)} */
     protected String _phoneNumber;
+
+    /** mail_address: {NotNull, VARCHAR(100)} */
+    protected String _mailAddress;
 
     /** url: {VARCHAR(100)} */
     protected String _url;
@@ -300,6 +305,7 @@ public abstract class BsSchool implements Entity, Serializable, Cloneable {
         sb.append(delimiter).append(getName());
         sb.append(delimiter).append(getKinds());
         sb.append(delimiter).append(getPhoneNumber());
+        sb.append(delimiter).append(getMailAddress());
         sb.append(delimiter).append(getUrl());
         sb.append(delimiter).append(getOneThing());
         if (sb.length() > delimiter.length()) {
@@ -418,6 +424,23 @@ public abstract class BsSchool implements Entity, Serializable, Cloneable {
     public void setPhoneNumber(String phoneNumber) {
         __modifiedProperties.addPropertyName("phoneNumber");
         this._phoneNumber = phoneNumber;
+    }
+
+    /**
+     * [get] mail_address: {NotNull, VARCHAR(100)} <br />
+     * @return The value of the column 'mail_address'. (NullAllowed)
+     */
+    public String getMailAddress() {
+        return _mailAddress;
+    }
+
+    /**
+     * [set] mail_address: {NotNull, VARCHAR(100)} <br />
+     * @param mailAddress The value of the column 'mail_address'. (NullAllowed)
+     */
+    public void setMailAddress(String mailAddress) {
+        __modifiedProperties.addPropertyName("mailAddress");
+        this._mailAddress = mailAddress;
     }
 
     /**

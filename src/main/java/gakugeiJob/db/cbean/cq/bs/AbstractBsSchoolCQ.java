@@ -827,6 +827,128 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as equal.
+     */
+    public void setMailAddress_Equal(String mailAddress) {
+        doSetMailAddress_Equal(fRES(mailAddress));
+    }
+
+    protected void doSetMailAddress_Equal(String mailAddress) {
+        regMailAddress(CK_EQ, mailAddress);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as notEqual.
+     */
+    public void setMailAddress_NotEqual(String mailAddress) {
+        doSetMailAddress_NotEqual(fRES(mailAddress));
+    }
+
+    protected void doSetMailAddress_NotEqual(String mailAddress) {
+        regMailAddress(CK_NES, mailAddress);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as greaterThan.
+     */
+    public void setMailAddress_GreaterThan(String mailAddress) {
+        regMailAddress(CK_GT, fRES(mailAddress));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as lessThan.
+     */
+    public void setMailAddress_LessThan(String mailAddress) {
+        regMailAddress(CK_LT, fRES(mailAddress));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as greaterEqual.
+     */
+    public void setMailAddress_GreaterEqual(String mailAddress) {
+        regMailAddress(CK_GE, fRES(mailAddress));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as lessEqual.
+     */
+    public void setMailAddress_LessEqual(String mailAddress) {
+        regMailAddress(CK_LE, fRES(mailAddress));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddressList The collection of mailAddress as inScope.
+     */
+    public void setMailAddress_InScope(Collection<String> mailAddressList) {
+        doSetMailAddress_InScope(mailAddressList);
+    }
+
+    public void doSetMailAddress_InScope(Collection<String> mailAddressList) {
+        regINS(CK_INS, cTL(mailAddressList), getCValueMailAddress(), "mail_address");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddressList The collection of mailAddress as notInScope.
+     */
+    public void setMailAddress_NotInScope(Collection<String> mailAddressList) {
+        doSetMailAddress_NotInScope(mailAddressList);
+    }
+
+    public void doSetMailAddress_NotInScope(Collection<String> mailAddressList) {
+        regINS(CK_NINS, cTL(mailAddressList), getCValueMailAddress(), "mail_address");
+    }
+
+    /**
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as prefixSearch.
+     */
+    public void setMailAddress_PrefixSearch(String mailAddress) {
+        setMailAddress_LikeSearch(mailAddress, cLSOP());
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...} <br />
+     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as likeSearch.
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    public void setMailAddress_LikeSearch(String mailAddress, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(mailAddress), getCValueMailAddress(), "mail_address", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
+     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @param mailAddress The value of mailAddress as notLikeSearch.
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    public void setMailAddress_NotLikeSearch(String mailAddress, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(mailAddress), getCValueMailAddress(), "mail_address", likeSearchOption);
+    }
+
+    protected void regMailAddress(ConditionKey k, Object v) { regQ(k, v, getCValueMailAddress(), "mail_address"); }
+    abstract protected ConditionValue getCValueMailAddress();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
      * url: {VARCHAR(100)}
      * @param url The value of url as equal.
      */

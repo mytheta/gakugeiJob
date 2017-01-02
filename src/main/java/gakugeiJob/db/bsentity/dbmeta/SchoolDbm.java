@@ -40,6 +40,7 @@ public class SchoolDbm extends AbstractDBMeta {
         setupEpg(_epgMap, new EpgName(), "name");
         setupEpg(_epgMap, new EpgKinds(), "kinds");
         setupEpg(_epgMap, new EpgPhoneNumber(), "phoneNumber");
+        setupEpg(_epgMap, new EpgMailAddress(), "mailAddress");
         setupEpg(_epgMap, new EpgUrl(), "url");
         setupEpg(_epgMap, new EpgOneThing(), "oneThing");
     }
@@ -64,6 +65,10 @@ public class SchoolDbm extends AbstractDBMeta {
     public static class EpgPhoneNumber implements PropertyGateway {
         public Object read(Entity e) { return ((School)e).getPhoneNumber(); }
         public void write(Entity e, Object v) { ((School)e).setPhoneNumber((String)v); }
+    }
+    public static class EpgMailAddress implements PropertyGateway {
+        public Object read(Entity e) { return ((School)e).getMailAddress(); }
+        public void write(Entity e, Object v) { ((School)e).setMailAddress((String)v); }
     }
     public static class EpgUrl implements PropertyGateway {
         public Object read(Entity e) { return ((School)e).getUrl(); }
@@ -93,6 +98,7 @@ public class SchoolDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnName = cci("name", "name", null, null, true, "name", String.class, false, false, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnKinds = cci("kinds", "kinds", null, null, false, "kinds", String.class, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnPhoneNumber = cci("phone_number", "phone_number", null, null, true, "phoneNumber", String.class, false, false, "VARCHAR", 12, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMailAddress = cci("mail_address", "mail_address", null, null, true, "mailAddress", String.class, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnUrl = cci("url", "url", null, null, false, "url", String.class, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnOneThing = cci("one_thing", "one_thing", null, null, false, "oneThing", String.class, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null);
 
@@ -101,6 +107,7 @@ public class SchoolDbm extends AbstractDBMeta {
     public ColumnInfo columnName() { return _columnName; }
     public ColumnInfo columnKinds() { return _columnKinds; }
     public ColumnInfo columnPhoneNumber() { return _columnPhoneNumber; }
+    public ColumnInfo columnMailAddress() { return _columnMailAddress; }
     public ColumnInfo columnUrl() { return _columnUrl; }
     public ColumnInfo columnOneThing() { return _columnOneThing; }
 
@@ -111,6 +118,7 @@ public class SchoolDbm extends AbstractDBMeta {
         ls.add(columnName());
         ls.add(columnKinds());
         ls.add(columnPhoneNumber());
+        ls.add(columnMailAddress());
         ls.add(columnUrl());
         ls.add(columnOneThing());
         return ls;

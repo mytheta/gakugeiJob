@@ -248,6 +248,27 @@ public class BsSchoolCQ extends AbstractBsSchoolCQ {
      */
     public BsSchoolCQ addOrderBy_PhoneNumber_Desc() { regOBD("phone_number"); return this; }
 
+    protected ConditionValue _mailAddress;
+    public ConditionValue getMailAddress() {
+        if (_mailAddress == null) { _mailAddress = nCV(); }
+        return _mailAddress;
+    }
+    protected ConditionValue getCValueMailAddress() { return getMailAddress(); }
+
+    /** 
+     * Add order-by as ascend. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @return this. (NotNull)
+     */
+    public BsSchoolCQ addOrderBy_MailAddress_Asc() { regOBA("mail_address"); return this; }
+
+    /**
+     * Add order-by as descend. <br />
+     * mail_address: {NotNull, VARCHAR(100)}
+     * @return this. (NotNull)
+     */
+    public BsSchoolCQ addOrderBy_MailAddress_Desc() { regOBD("mail_address"); return this; }
+
     protected ConditionValue _url;
     public ConditionValue getUrl() {
         if (_url == null) { _url = nCV(); }

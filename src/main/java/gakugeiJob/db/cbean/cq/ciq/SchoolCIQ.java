@@ -91,6 +91,7 @@ public class SchoolCIQ extends AbstractBsSchoolCQ {
     protected ConditionValue getCValueName() { return _myCQ.getName(); }
     protected ConditionValue getCValueKinds() { return _myCQ.getKinds(); }
     protected ConditionValue getCValuePhoneNumber() { return _myCQ.getPhoneNumber(); }
+    protected ConditionValue getCValueMailAddress() { return _myCQ.getMailAddress(); }
     protected ConditionValue getCValueUrl() { return _myCQ.getUrl(); }
     protected ConditionValue getCValueOneThing() { return _myCQ.getOneThing(); }
     public String keepScalarCondition(SchoolCQ subQuery)

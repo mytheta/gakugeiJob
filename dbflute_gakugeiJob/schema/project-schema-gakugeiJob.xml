@@ -161,6 +161,9 @@
         <column comment="phone_number" dbType="VARCHAR"
             javaType="String" name="phone_number" required="true"
             size="12" type="VARCHAR"/>
+        <column comment="mail_address" dbType="VARCHAR"
+            javaType="String" name="mail_address" required="true"
+            size="100" type="VARCHAR"/>
         <column comment="url" dbType="VARCHAR" javaType="String"
             name="url" size="100" type="VARCHAR"/>
         <column comment="one_thing" dbType="VARCHAR" javaType="String"

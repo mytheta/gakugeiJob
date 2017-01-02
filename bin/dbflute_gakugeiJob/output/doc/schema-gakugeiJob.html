@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>gakugeiJob schema</title>
+	<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Verdana, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", "MS P Gothic", "MS Pゴシック", sans-serif;
+	font-size: 80%;
+	margin: 10px 5px 5px 15px;
+	background-color: #ffffe0;
+}
+
+/* heading */
+h1 {
+	font-size: 1.5em;
+	border-bottom: 2px solid #af0000;
+	border-top: 2px solid #af0000;
+}
+h2 {
+	margin: 30px 0 5px 0;
+	font-size: 1.8em;
+	border-bottom: 2px solid #af0000;
+	border-left: 10px solid #af0000;
+	text-indent: 10px;
+}
+h3 {
+	padding: 0 0 0 10px;
+	margin: 1em 10% 0 0;
+	border-top: double 3px #af0000;
+	border-bottom: solid 1px #333333;
+	font-size: 1.5em;
+	color: #333333;
+}
+h4 {
+	padding: 0 0 0 10px;
+	margin: 1em 10% 0 1em;
+	border-top: solid 1px #af0000;
+	border-bottom: solid 1px #af0000;
+	font-size: 1.4em;
+	color: #333333;
+}
+
+/* total info */
+.updatedate {
+	text-align: right;
+}
+.mainschema {
+	text-align: right;
+}
+.sublink {
+	text-align: right;
+}
+
+/* table */
+table {
+	border-collapse:collapse;
+}
+table, th {
+	border: 1px solid #555;
+}
+th {
+	background-color: #cc9;
+	font-size: 0.8em;
+}
+td {
+	border-bottom: 1px dotted #aaa;
+	border-left: 1px solid #555;
+	padding:2px;
+}
+.rownumhead {
+	text-align: center;
+	font-size: 0.4em;
+}
+.rownumcell {
+	text-align: center;
+	font-size: 0.4em;
+	color: #444;
+}
+.schemacell {
+	font-size: 0.8em;
+	white-space: nowrap;
+}
+.aliascell {
+	white-space: nowrap;
+}
+.flgcell {
+	text-align: center;
+}
+.flgplus {
+	font-size: 0.7em;
+}
+.typecell {
+	font-size: 0.6em;
+}
+.sizecell {
+	text-align: center;
+	font-size: 0.8em;
+}
+.defvalcell {
+	text-align: center;
+	font-size: 0.6em;
+}
+.relcell {
+	font-size: 0.6em;
+}
+.commentcell {
+	font-size: 0.7em;
+}
+.subcell {
+	font-size: 0.6em;
+}
+.comcolcell {
+	color: #666;
+}
+.optcell {
+	font-style: italic;
+}
+.additionalpk {
+	font-style: italic;
+}
+.additionalfk {
+	font-style: italic;
+}
+.clstypecell {
+	text-align: center;
+	font-size: 0.8em;
+}
+
+/* inner table */
+table.child {
+	margin: 3px;
+}
+table.child th {
+	font-size: 0.7em;
+}
+table.child, table.child td, table.child th {
+	border-top: none;
+	border-left: none;
+	border-bottom: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+}
+
+/* table supplementary info */
+span.tableschema {
+	font-size: 0.6em;
+}
+span.bqpcount {
+	font-size: 0.5em;
+}
+dl.bqplist {
+	padding-left: 2em;
+}
+dl.bqplist dt {
+	display: list-item;
+	font-size: 1.3em;
+	margin-top: 0.3em;
+}
+dl.bqplist dd {
+	padding-left: 1em;
+}
+dl.bqplist dd pre {
+	font-size: 1.1em;
+}
+dl.bqplist dd.subinfo {
+	padding-left: 2em;
+}
+dl.bqplist dd.subinfo span.sqlap {
+	font-style: italic;
+	color: #002266;
+}
+dl.bqplist dd.subinfo span.file {
+	font-style: italic;
+	color: #002266;
+}
+dl.bqplist dd.subinfo span.ctet {
+	color: green;
+}
+dl.bqplist dd.subinfo span.pmb {
+	color: green;
+}
+dl.procedurelist {
+	padding-left: 2em;
+}
+dl.procedurelist dt {
+	display: list-item;
+	font-size: 1.3em;
+	margin-top: 0.3em;
+}
+dl.procedurelist dt span.type {
+	font-size: 0.7em;
+	color: green;
+}
+dl.procedurelist dd {
+	padding-left: 1em;
+}
+dl.procedurelist dd pre {
+	font-size: 1.1em;
+}
+dl.procedurelist dd.column {
+	font-style: italic;
+	padding-left: 2em;
+}
+dl.procedurelist dd.column span.attrs {
+	font-size: 0.7em;
+	color: #125699;
+}
+dl.procedurelist dd.column span.type {
+	font-size: 0.9em;
+	color: green;
+}
+dl.procedurelist dd.column pre {
+	padding-left: 1em;
+}
+	</style>
+</head>
+
+<body>
+<h1>Schema for gakugeiJob (mysql)</h1>
+<p class="mainschema">generated from <strong>gakugeiJob</strong></p>
+
+<h2>Table List</h2>
+<table summary="Tables in the Schema">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>TableComment</th>
+		<th>EntityName</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td><a href="#admin" title="type=TABLE, primaryKey={user_id}, nameLength=5, columnCount=3">admin</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#login" title="admin_ibfk_1">login</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell"> admin</td>
+		<td class="subcell">Admin</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td><a href="#enterprise" title="type=TABLE, primaryKey={enterprise_id}, nameLength=10, columnCount=14">enterprise</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#login" title="enterprise_ibfk_1">login</a></td>
+		<td class="relcell"><a href="#enterprise_offer" title="enterprise_offer_ibfk_1">enterprise_offer</a></td>
+		<td class="commentcell"> enterprise</td>
+		<td class="subcell">Enterprise</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td><a href="#enterprise_aplicant" title="type=TABLE, primaryKey={job_offer_id, student_id}, nameLength=19, columnCount=4">enterprise_aplicant</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#enterprise_offer" title="enterprise_aplicant_ibfk_1">enterprise_offer</a>, <a href="#student" title="enterprise_aplicant_ibfk_2">student</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell"> enterprise_aplicant</td>
+		<td class="subcell">EnterpriseAplicant</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td><a href="#enterprise_favo" title="type=TABLE, primaryKey={job_offer_id, student_id}, nameLength=15, columnCount=2">enterprise_favo</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#enterprise_offer" title="enterprise_favo_ibfk_1">enterprise_offer</a>, <a href="#student" title="enterprise_favo_ibfk_2">student</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell"> enterprise_favo</td>
+		<td class="subcell">EnterpriseFavo</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td><a href="#enterprise_offer" title="type=TABLE, primaryKey={job_offer_id}, nameLength=16, columnCount=15">enterprise_offer</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#enterprise" title="enterprise_offer_ibfk_1">enterprise</a></td>
+		<td class="relcell"><a href="#enterprise_aplicant" title="enterprise_aplicant_ibfk_1">enterprise_aplicant</a>, <a href="#enterprise_favo" title="enterprise_favo_ibfk_1">enterprise_favo</a></td>
+		<td class="commentcell"> enterprise_offer</td>
+		<td class="subcell">EnterpriseOffer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td><a href="#login" title="type=TABLE, primaryKey={user_id}, nameLength=5, columnCount=3">login</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#admin" title="admin_ibfk_1">admin</a>, <a href="#enterprise" title="enterprise_ibfk_1">enterprise</a>, <a href="#school" title="school_ibfk_1">school</a>, <a href="#student" title="student_ibfk_1">student</a></td>
+		<td class="commentcell"> login</td>
+		<td class="subcell">Login</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td><a href="#school" title="type=TABLE, primaryKey={school_id}, nameLength=6, columnCount=7">school</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#login" title="school_ibfk_1">login</a></td>
+		<td class="relcell"><a href="#school_offer" title="school_offer_ibfk_1">school_offer</a></td>
+		<td class="commentcell"> school</td>
+		<td class="subcell">School</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td><a href="#school_aplicant" title="type=TABLE, primaryKey={school_offer_id, student_id}, nameLength=15, columnCount=4">school_aplicant</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#school_offer" title="school_aplicant_ibfk_1">school_offer</a>, <a href="#student" title="school_aplicant_ibfk_2">student</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell"> school_aplicant</td>
+		<td class="subcell">SchoolAplicant</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td><a href="#school_favo" title="type=TABLE, primaryKey={school_offer_id, student_id}, nameLength=11, columnCount=2">school_favo</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#school_offer" title="school_favo_ibfk_1">school_offer</a>, <a href="#student" title="school_favo_ibfk_2">student</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell"> school_favo</td>
+		<td class="subcell">SchoolFavo</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">10</td>
+		<td><a href="#school_offer" title="type=TABLE, primaryKey={school_offer_id}, nameLength=12, columnCount=13">school_offer</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#school" title="school_offer_ibfk_1">school</a></td>
+		<td class="relcell"><a href="#school_aplicant" title="school_aplicant_ibfk_1">school_aplicant</a>, <a href="#school_favo" title="school_favo_ibfk_1">school_favo</a></td>
+		<td class="commentcell"> school_offer</td>
+		<td class="subcell">SchoolOffer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td><a href="#student" title="type=TABLE, primaryKey={student_id}, nameLength=7, columnCount=8">student</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#login" title="student_ibfk_1">login</a></td>
+		<td class="relcell"><a href="#enterprise_aplicant" title="enterprise_aplicant_ibfk_2">enterprise_aplicant</a>, <a href="#enterprise_favo" title="enterprise_favo_ibfk_2">enterprise_favo</a>, <a href="#school_aplicant" title="school_aplicant_ibfk_2">school_aplicant</a>, <a href="#school_favo" title="school_favo_ibfk_2">school_favo</a></td>
+		<td class="commentcell"> student</td>
+		<td class="subcell">Student</td>
+	</tr>
+	</tbody>
+</table>
+
+  <h2 id="admin" title="type=TABLE, primaryKey={user_id}, nameLength=5, columnCount=3">
+admin
+</h2>
+<table summary="Columns in admin">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="adminuser_id">user_id</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell"><a href="#login" title="admin_ibfk_1">login</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> user_id</td>
+		<td class="subcell">userId</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="adminadmin_pass1">admin_pass1</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 256 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> admin_pass1</td>
+		<td class="subcell">adminPass1</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="adminadmin_pass2">admin_pass2</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 256 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> admin_pass2</td>
+		<td class="subcell">adminPass2</td>
+		<td class="subcell">String</td>
+	</tr>
+</table>
+  <h2 id="enterprise" title="type=TABLE, primaryKey={enterprise_id}, nameLength=10, columnCount=14">
+enterprise
+</h2>
+<table summary="Columns in enterprise">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterpriseenterprise_id">enterprise_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#enterprise_offer" title="enterprise_offer_ibfk_1">enterprise_offer</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> enterprise_id</td>
+		<td class="subcell">enterpriseId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="user_id(user_id)">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterpriseuser_id">user_id</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell"><a href="#login" title="enterprise_ibfk_1">login</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> user_id</td>
+		<td class="subcell">userId</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprisename">name</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> name</td>
+		<td class="subcell">name</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprisefounding_date">founding_date</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> founding_date</td>
+		<td class="subcell">foundingDate</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprisefounder_name">founder_name</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> founder_name</td>
+		<td class="subcell">founderName</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterpriseaddress">address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> address</td>
+		<td class="subcell">address</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprisecapital">capital</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> capital</td>
+		<td class="subcell">capital</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprisepresident_name">president_name</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> president_name</td>
+		<td class="subcell">presidentName</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprisenum_of_employees">num_of_employees</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> num_of_employees</td>
+		<td class="subcell">numOfEmployees</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">10</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprisebusiness">business</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> business</td>
+		<td class="subcell">business</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprisephone_number">phone_number</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> phone_number</td>
+		<td class="subcell">phoneNumber</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">12</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterpriseurl">url</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> url</td>
+		<td class="subcell">url</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterpriseone_thing">one_thing</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> one_thing</td>
+		<td class="subcell">oneThing</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">14</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprisemail_address">mail_address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> mail_address</td>
+		<td class="subcell">mailAddress</td>
+		<td class="subcell">String</td>
+	</tr>
+</table>
+  <h2 id="enterprise_aplicant" title="type=TABLE, primaryKey={job_offer_id, student_id}, nameLength=19, columnCount=4">
+enterprise_aplicant
+</h2>
+<table summary="Columns in enterprise_aplicant">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_aplicantjob_offer_id">job_offer_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#enterprise_offer" title="enterprise_aplicant_ibfk_1">enterprise_offer</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> job_offer_id</td>
+		<td class="subcell">jobOfferId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="student_id(student_id)">o</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_aplicantstudent_id">student_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#student" title="enterprise_aplicant_ibfk_2">student</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> student_id</td>
+		<td class="subcell">studentId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_aplicanttitle">title</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> title</td>
+		<td class="subcell">title</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_aplicantcontent">content</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 400 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> content</td>
+		<td class="subcell">content</td>
+		<td class="subcell">String</td>
+	</tr>
+</table>
+  <h2 id="enterprise_favo" title="type=TABLE, primaryKey={job_offer_id, student_id}, nameLength=15, columnCount=2">
+enterprise_favo
+</h2>
+<table summary="Columns in enterprise_favo">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_favojob_offer_id">job_offer_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#enterprise_offer" title="enterprise_favo_ibfk_1">enterprise_offer</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> job_offer_id</td>
+		<td class="subcell">jobOfferId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="student_id(student_id)">o</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_favostudent_id">student_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#student" title="enterprise_favo_ibfk_2">student</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> student_id</td>
+		<td class="subcell">studentId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+</table>
+  <h2 id="enterprise_offer" title="type=TABLE, primaryKey={job_offer_id}, nameLength=16, columnCount=15">
+enterprise_offer
+</h2>
+<table summary="Columns in enterprise_offer">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_offerjob_offer_id">job_offer_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#enterprise_aplicant" title="enterprise_aplicant_ibfk_1">enterprise_aplicant</a>,<br /><a href="#enterprise_favo" title="enterprise_favo_ibfk_1">enterprise_favo</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> job_offer_id</td>
+		<td class="subcell">jobOfferId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="enterprise_id(enterprise_id)">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerenterprise_id">enterprise_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#enterprise" title="enterprise_offer_ibfk_1">enterprise</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> enterprise_id</td>
+		<td class="subcell">enterpriseId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_offerdescription">description</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 1000 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> description</td>
+		<td class="subcell">description</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_offeroffice_name">office_name</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> office_name</td>
+		<td class="subcell">officeName</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offeraddress">address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> address</td>
+		<td class="subcell">address</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerstation">station</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> station</td>
+		<td class="subcell">station</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerperiod">period</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> period</td>
+		<td class="subcell">period</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerholiday">holiday</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> holiday</td>
+		<td class="subcell">holiday</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerworking_time">working_time</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> working_time</td>
+		<td class="subcell">workingTime</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">10</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="enterprise_offersalary">salary</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> salary</td>
+		<td class="subcell">salary</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerqualification">qualification</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> qualification</td>
+		<td class="subcell">qualification</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">12</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerwelfare">welfare</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> welfare</td>
+		<td class="subcell">welfare</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerone_thing">one_thing</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> one_thing</td>
+		<td class="subcell">oneThing</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">14</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerfavo">favo</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> favo</td>
+		<td class="subcell">favo</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">15</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="enterprise_offerregistration_date">registration_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> registration_date</td>
+		<td class="subcell">registrationDate</td>
+		<td class="subcell">Timestamp</td>
+	</tr>
+</table>
+  <h2 id="login" title="type=TABLE, primaryKey={user_id}, nameLength=5, columnCount=3">
+login
+</h2>
+<table summary="Columns in login">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="loginuser_id">user_id</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#admin" title="admin_ibfk_1">admin</a>,<br /><a href="#enterprise" title="enterprise_ibfk_1">enterprise</a>,<br /><a href="#school" title="school_ibfk_1">school</a>,<br /><a href="#student" title="student_ibfk_1">student</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> user_id</td>
+		<td class="subcell">userId</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="loginuser_pass">user_pass</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 256 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> user_pass</td>
+		<td class="subcell">userPass</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="loginrole">role</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> role</td>
+		<td class="subcell">role</td>
+		<td class="subcell">Integer</td>
+	</tr>
+</table>
+  <h2 id="school" title="type=TABLE, primaryKey={school_id}, nameLength=6, columnCount=7">
+school
+</h2>
+<table summary="Columns in school">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="schoolschool_id">school_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#school_offer" title="school_offer_ibfk_1">school_offer</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> school_id</td>
+		<td class="subcell">schoolId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="user_id(user_id)">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="schooluser_id">user_id</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell"><a href="#login" title="school_ibfk_1">login</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> user_id</td>
+		<td class="subcell">userId</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="schoolname">name</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> name</td>
+		<td class="subcell">name</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="schoolkinds">kinds</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> kinds</td>
+		<td class="subcell">kinds</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="schoolphone_number">phone_number</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> phone_number</td>
+		<td class="subcell">phoneNumber</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="schoolurl">url</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> url</td>
+		<td class="subcell">url</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="schoolone_thing">one_thing</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> one_thing</td>
+		<td class="subcell">oneThing</td>
+		<td class="subcell">String</td>
+	</tr>
+</table>
+  <h2 id="school_aplicant" title="type=TABLE, primaryKey={school_offer_id, student_id}, nameLength=15, columnCount=4">
+school_aplicant
+</h2>
+<table summary="Columns in school_aplicant">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="school_aplicantschool_offer_id">school_offer_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#school_offer" title="school_aplicant_ibfk_1">school_offer</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> school_offer_id</td>
+		<td class="subcell">schoolOfferId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="student_id(student_id)">o</td>
+		<td class="flgcell">*</td>
+		<td id="school_aplicantstudent_id">student_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#student" title="school_aplicant_ibfk_2">student</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> student_id</td>
+		<td class="subcell">studentId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_aplicanttitle">title</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> title</td>
+		<td class="subcell">title</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_aplicantcontent">content</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 400 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> content</td>
+		<td class="subcell">content</td>
+		<td class="subcell">String</td>
+	</tr>
+</table>
+  <h2 id="school_favo" title="type=TABLE, primaryKey={school_offer_id, student_id}, nameLength=11, columnCount=2">
+school_favo
+</h2>
+<table summary="Columns in school_favo">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="school_favoschool_offer_id">school_offer_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#school_offer" title="school_favo_ibfk_1">school_offer</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> school_offer_id</td>
+		<td class="subcell">schoolOfferId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="student_id(student_id)">o</td>
+		<td class="flgcell">*</td>
+		<td id="school_favostudent_id">student_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#student" title="school_favo_ibfk_2">student</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> student_id</td>
+		<td class="subcell">studentId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+</table>
+  <h2 id="school_offer" title="type=TABLE, primaryKey={school_offer_id}, nameLength=12, columnCount=13">
+school_offer
+</h2>
+<table summary="Columns in school_offer">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="school_offerschool_offer_id">school_offer_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#school_aplicant" title="school_aplicant_ibfk_1">school_aplicant</a>,<br /><a href="#school_favo" title="school_favo_ibfk_1">school_favo</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> school_offer_id</td>
+		<td class="subcell">schoolOfferId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="school_id(school_id)">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerschool_id">school_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#school" title="school_offer_ibfk_1">school</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> school_id</td>
+		<td class="subcell">schoolId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="school_offerdescription">description</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 1000 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> description</td>
+		<td class="subcell">description</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="school_offersalary">salary</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> salary</td>
+		<td class="subcell">salary</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerwork_schedule">work_schedule</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> work_schedule</td>
+		<td class="subcell">workSchedule</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerperiod">period</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> period</td>
+		<td class="subcell">period</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offeraddress">address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> address</td>
+		<td class="subcell">address</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerstation">station</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> station</td>
+		<td class="subcell">station</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerqualification">qualification</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> qualification</td>
+		<td class="subcell">qualification</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">10</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerwelfare">welfare</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> welfare</td>
+		<td class="subcell">welfare</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">11</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerone_thing">one_thing</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> one_thing</td>
+		<td class="subcell">oneThing</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">12</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerfavo">favo</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> favo</td>
+		<td class="subcell">favo</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="school_offerregistration_date">registration_date</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> registration_date</td>
+		<td class="subcell">registrationDate</td>
+		<td class="subcell">Timestamp</td>
+	</tr>
+</table>
+  <h2 id="student" title="type=TABLE, primaryKey={student_id}, nameLength=7, columnCount=8">
+student
+</h2>
+<table summary="Columns in student">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+	</tr>
+	</thead>
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="studentstudent_id">student_id</td>
+		<td class="typecell">INT UNSIGNED</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#enterprise_aplicant" title="enterprise_aplicant_ibfk_2">enterprise_aplicant</a>,<br /><a href="#enterprise_favo" title="enterprise_favo_ibfk_2">enterprise_favo</a>,<br /><a href="#school_aplicant" title="school_aplicant_ibfk_2">school_aplicant</a>,<br /><a href="#school_favo" title="school_favo_ibfk_2">school_favo</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> student_id</td>
+		<td class="subcell">studentId</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="user_id(user_id)">o</td>
+		<td class="flgcell">*</td>
+		<td id="studentuser_id">user_id</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell"><a href="#login" title="student_ibfk_1">login</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> user_id</td>
+		<td class="subcell">userId</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="studentname">name</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> name</td>
+		<td class="subcell">name</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="studentbirthday">birthday</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> birthday</td>
+		<td class="subcell">birthday</td>
+		<td class="subcell">Timestamp</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="studentsex">sex</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> sex</td>
+		<td class="subcell">sex</td>
+		<td class="subcell">Integer</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="studentphone_number">phone_number</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 12 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> phone_number</td>
+		<td class="subcell">phoneNumber</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="studentmail_address">mail_address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> mail_address</td>
+		<td class="subcell">mailAddress</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td id="studentaddress">address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> address</td>
+		<td class="subcell">address</td>
+		<td class="subcell">String</td>
+	</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 package gakugeiJob.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
 
 import org.seasar.dbflute.cbean.ListResultBean;
 import org.seasar.framework.container.annotation.tiger.Binding;
@@ -9,8 +10,10 @@ import org.seasar.framework.container.annotation.tiger.BindingType;
 import gakugeiJob.db.cbean.EnterpriseCB;
 import gakugeiJob.db.cbean.LoginCB;
 import gakugeiJob.db.exbhv.EnterpriseBhv;
+import gakugeiJob.db.exbhv.EnterpriseOfferBhv;
 import gakugeiJob.db.exbhv.LoginBhv;
 import gakugeiJob.db.exentity.Enterprise;
+import gakugeiJob.db.exentity.EnterpriseOffer;
 import gakugeiJob.db.exentity.Login;
 import gakugeiJob.helper.LoginHelper;
 
@@ -20,6 +23,9 @@ public class EnterpriseService {
 	
 	@Binding(bindingType = BindingType.MUST)
 	protected LoginBhv loginBhv;
+	
+	@Binding(bindingType = BindingType.MUST)
+	protected EnterpriseOfferBhv enterpriseOfferBhv;
 	
 	public ListResultBean<Login> loginList;
 
@@ -63,6 +69,34 @@ public class EnterpriseService {
 		return 0;
 	}
 	
+	public void insertOffer(int enterpriseId, String description, String officeName, String address,
+			String station, String period, String holiday, String workingTime, String salary, String qualification,
+			String welfare, String oneThing) {
+		
+		EnterpriseOffer enterpriseOffer = new EnterpriseOffer();
+		
+		enterpriseOffer.setEnterpriseId(enterpriseId);
+		enterpriseOffer.setDescription(description);
+		enterpriseOffer.setOfficeName(officeName);
+		enterpriseOffer.setAddress(address);
+		enterpriseOffer.setStation(station);
+		enterpriseOffer.setPeriod(period);
+		enterpriseOffer.setHoliday(holiday);
+		enterpriseOffer.setWorkingTime(workingTime);
+		enterpriseOffer.setSalary(salary);
+		enterpriseOffer.setQualification(qualification);
+		enterpriseOffer.setWelfare(welfare);
+		enterpriseOffer.setOneThing(oneThing);
+		Timestamp registrationDate = new Timestamp(System.currentTimeMillis());
+		enterpriseOffer.setRegistrationDate(registrationDate);
+		enterpriseOffer.setFavo(0);
+		enterpriseOfferBhv.insert(enterpriseOffer);
+	}
+
+	public Enterprise select(int enterpriseId) {
+		return enterpriseBhv.selectByPKValue(enterpriseId);
+	}
+
 	public ListResultBean<Enterprise> selectAll(){
 		EnterpriseCB enterpriseCB = new EnterpriseCB();
 		return enterpriseBhv.selectList(enterpriseCB);

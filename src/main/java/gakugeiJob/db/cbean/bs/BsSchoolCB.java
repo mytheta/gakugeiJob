@@ -341,6 +341,11 @@ public class BsSchoolCB extends AbstractConditionBean {
          */
         public HpSpecifiedColumn columnPhoneNumber() { return doColumn("phone_number"); }
         /**
+         * mail_address: {NotNull, VARCHAR(100)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public HpSpecifiedColumn columnMailAddress() { return doColumn("mail_address"); }
+        /**
          * url: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */

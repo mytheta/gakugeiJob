@@ -11,6 +11,8 @@ public class StudentDto implements Serializable{
 
 	public String userId = null;
 	
+	public Integer studentId = null;
+	
 	public Boolean isLogin(){
 		if(userId != null){
 			return true;

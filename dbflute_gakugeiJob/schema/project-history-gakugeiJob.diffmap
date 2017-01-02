@@ -1,4 +1,65 @@
 map:{
+    ; 2016/12/29 10:48:28 = map:{
+        ; diffDate = 2016/12/29 10:48:28
+        ; tableDiff = map:{
+            ; school = map:{
+                ; tableName = school
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; mail_address = map:{
+                        ; columnName = mail_address
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/12/22 18:57:44 = map:{
+        ; diffDate = 2016/12/22 18:57:44
+        ; tableDiff = map:{
+            ; student = map:{
+                ; tableName = student
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; birthday = map:{
+                        ; columnName = birthday
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = DATETIME
+                            ; previous = DATE
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = 10
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/12/22 13:42:30 = map:{
+        ; diffDate = 2016/12/22 13:42:30
+        ; tableDiff = map:{
+            ; student = map:{
+                ; tableName = student
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; birthday = map:{
+                        ; columnName = birthday
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = DATE
+                            ; previous = DATETIME
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 19
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2016/12/20 20:09:52 = map:{
         ; diffDate = 2016/12/20 20:09:52
         ; tableDiff = map:{

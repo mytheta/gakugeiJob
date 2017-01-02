@@ -19,7 +19,7 @@ import gakugeiJob.db.cbean.*;
  *     school_id
  * 
  * [column]
- *     school_id, user_id, name, kinds, phone_number, url, one_thing
+ *     school_id, user_id, name, kinds, phone_number, mail_address, url, one_thing
  * 
  * [sequence]
  *     

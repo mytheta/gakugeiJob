@@ -28,7 +28,7 @@ public class AddSchoolAction {
     public String add() throws NoSuchAlgorithmException{
     	int result = -1;
     	result = schoolService.insertSchool(schoolForm.userId, schoolForm.userPass, schoolForm.name, schoolForm.kinds, schoolForm.phoneNumber,
-    			schoolForm.url, schoolForm.oneThing);
+    			schoolForm.mailAddress, schoolForm.url, schoolForm.oneThing);
     			
     	if(result == 0)
     		return "confirm.jsp";

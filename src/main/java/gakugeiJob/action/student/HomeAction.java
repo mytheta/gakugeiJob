@@ -19,7 +19,6 @@ public class HomeAction {
 	protected StudentService studentService;
 	
 	public ListResultBean<Student> studentList;
-	
 	public String userId;
 	
 	@Execute(validator = false)

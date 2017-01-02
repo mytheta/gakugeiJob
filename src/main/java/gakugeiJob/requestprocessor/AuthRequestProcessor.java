@@ -8,11 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import gakugeiJob.dto.StudentDto;
-import gakugeiJob.dto.AdminDto;
-import gakugeiJob.dto.EnterpriseDto;
-import gakugeiJob.dto.SchoolDto;
-
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.config.ForwardConfig;
 import org.seasar.framework.beans.BeanDesc;
@@ -21,6 +16,11 @@ import org.seasar.framework.container.SingletonS2Container;
 import org.seasar.struts.action.S2RequestProcessor;
 import org.seasar.struts.config.S2ExecuteConfig;
 import org.seasar.struts.util.S2ExecuteConfigUtil;
+
+import gakugeiJob.dto.AdminDto;
+import gakugeiJob.dto.EnterpriseDto;
+import gakugeiJob.dto.SchoolDto;
+import gakugeiJob.dto.StudentDto;
 
 public class AuthRequestProcessor extends S2RequestProcessor{
 	@Override
@@ -59,7 +59,7 @@ public class AuthRequestProcessor extends S2RequestProcessor{
 			}
 			// Check @EnterpriseAuth
 			if(annotation.annotationType().getName().equals("gakugeiJob.annotation.EnterpriseAuth")){
-				Object object = SingletonS2Container.getComponent(StudentDto.class);
+				Object object = SingletonS2Container.getComponent(EnterpriseDto.class);
 				BeanDesc beanDesc = BeanDescFactory.getBeanDesc(object.getClass());
 				Boolean isLogin = (Boolean)beanDesc.invoke(object, "isLogin", null);
 
@@ -73,7 +73,7 @@ public class AuthRequestProcessor extends S2RequestProcessor{
 			}
 			// Check @SchoolAuth
 				if(annotation.annotationType().getName().equals("gakugeiJob.annotation.SchoolAuth")){
-					Object object = SingletonS2Container.getComponent(StudentDto.class);
+					Object object = SingletonS2Container.getComponent(SchoolDto.class);
 					BeanDesc beanDesc = BeanDescFactory.getBeanDesc(object.getClass());
 					Boolean isLogin = (Boolean)beanDesc.invoke(object, "isLogin", null);
 
