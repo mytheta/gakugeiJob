@@ -35,7 +35,6 @@ public class EditStudentAction {
 		student = studentService.selectByStudentId(studentDto.studentId);
 		if(student.getBirthday() != null)
 		birthday = DateHelper.formatYMD2(student.getBirthday());
-		System.out.println(birthday);
 
         return "index.jsp";
 	}

@@ -7,18 +7,12 @@ import org.seasar.framework.container.annotation.tiger.BindingType;
 import gakugeiJob.db.cbean.EnterpriseAplicantCB;
 import gakugeiJob.db.cbean.EnterpriseFavoCB;
 import gakugeiJob.db.cbean.EnterpriseOfferCB;
-import gakugeiJob.db.cbean.SchoolAplicantCB;
-import gakugeiJob.db.cbean.SchoolFavoCB;
-import gakugeiJob.db.cbean.SchoolOfferCB;
 import gakugeiJob.db.exbhv.EnterpriseAplicantBhv;
 import gakugeiJob.db.exbhv.EnterpriseFavoBhv;
 import gakugeiJob.db.exbhv.EnterpriseOfferBhv;
 import gakugeiJob.db.exentity.EnterpriseAplicant;
 import gakugeiJob.db.exentity.EnterpriseFavo;
 import gakugeiJob.db.exentity.EnterpriseOffer;
-import gakugeiJob.db.exentity.SchoolAplicant;
-import gakugeiJob.db.exentity.SchoolFavo;
-import gakugeiJob.db.exentity.SchoolOffer;
 
 public class EnterpriseOfferService {
 	@Binding(bindingType = BindingType.MUST)
@@ -88,5 +82,13 @@ public class EnterpriseOfferService {
 		enterpriseAplicant.setJobOfferId(jobOfferId);
 		enterpriseAplicant.setStudentId(studentId);
 		enterpriseAplicantBhv.delete(enterpriseAplicant);
+	}
+
+	public ListResultBean<EnterpriseAplicant> selectAplicant(int jobOfferId) {
+		EnterpriseAplicantCB enterpriseAplicantCB = new EnterpriseAplicantCB();
+		EnterpriseAplicant enterpriseAplicant = new EnterpriseAplicant();
+		enterpriseAplicant.setJobOfferId(jobOfferId);
+		enterpriseAplicantCB.query().equals(enterpriseAplicant);
+		return enterpriseAplicantBhv.selectList(enterpriseAplicantCB);
 	}
 }

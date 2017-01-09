@@ -24,6 +24,7 @@
 			<form name="viewMyOfferActionForm" class="form-horizontal" action="/gakugeiJob/enterprise/viewMyOffer/" method="POST">
 				<input type="hidden" value="${enterpriseOffer.jobOfferId}" name="jobOfferId"/>
 				<button class="btn btn-lg btn-success" type="submit" name="view" value="View">詳細</button>&nbsp;&nbsp;
+				<button class="btn btn-lg btn-primary" type="submit" name="offer" value="Offer">応募者をみる</button>
 			</form>
 		</div><br>
 		

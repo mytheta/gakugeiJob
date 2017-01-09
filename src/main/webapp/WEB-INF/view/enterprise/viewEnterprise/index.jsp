@@ -9,7 +9,7 @@
 		
 			<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
 				<font size="4"><p class="text-left">&nbsp;&nbsp;ユーザーID</p></font>
-				<pre><c:out value="${enterprise.userID}" /></pre>
+				<pre><c:out value="${enterprise.userId}" /></pre>
 			</div>
 			
 			

@@ -11,6 +11,7 @@ public class LogoutAction {
 	@SchoolAuth
 	@RemoveSession(name="schoolDto")
     public String index(){
+
         return "/?redirect=true";
     }
 }

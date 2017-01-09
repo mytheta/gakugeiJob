@@ -1,9 +1,7 @@
 package gakugeiJob.form.student;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 import org.seasar.struts.annotation.IntegerType;
+import org.seasar.struts.annotation.Mask;
 import org.seasar.struts.annotation.Maxlength;
 import org.seasar.struts.annotation.Required;
 
@@ -11,6 +9,7 @@ public class EditStudentForm {
 
 	@Required
 	@Maxlength(maxlength = 12)
+	@Mask(mask = "^[A-Za-z0-9]+$")
 	public String userId;
 	
 	@Required

@@ -20,13 +20,13 @@ import gakugeiJob.helper.LoginHelper;
 public class EnterpriseService {
 	@Binding(bindingType = BindingType.MUST)
 	protected EnterpriseBhv enterpriseBhv;
-	
+
 	@Binding(bindingType = BindingType.MUST)
 	protected LoginBhv loginBhv;
-	
+
 	@Binding(bindingType = BindingType.MUST)
 	protected EnterpriseOfferBhv enterpriseOfferBhv;
-	
+
 	public ListResultBean<Login> loginList;
 
 	public int insertEnterprise(String userId, String userPass, String name, String foundingDate, String founderName,
@@ -34,7 +34,7 @@ public class EnterpriseService {
 			String url, String oneThing, String mailAddress) throws NoSuchAlgorithmException{
 		Enterprise enterprise = new Enterprise();
 		Login login = new Login();
-		
+
 		//UserIdが使われているかチェック使われていたら-1を返す
 		LoginCB loginCB = new LoginCB();
 		loginList =  loginBhv.selectList(loginCB);
@@ -43,7 +43,7 @@ public class EnterpriseService {
 				return -1;
 			}
 		}
-		
+
 		enterprise.setUserId(userId);
 		enterprise.setName(name);
 		enterprise.setFoundingDate(foundingDate);
@@ -57,24 +57,24 @@ public class EnterpriseService {
 		enterprise.setUrl(url);
 		enterprise.setOneThing(oneThing);
 		enterprise.setMailAddress(mailAddress);
-		
+
 		login.setUserId(userId);
 		login.setUserPass(LoginHelper.getHash(userPass, userPass));
 		login.setRole(1);
-		
+
 		loginBhv.insert(login);
 		enterpriseBhv.insert(enterprise);
-		
+
 		//正常な処理
 		return 0;
 	}
-	
+
 	public void insertOffer(int enterpriseId, String description, String officeName, String address,
 			String station, String period, String holiday, String workingTime, String salary, String qualification,
 			String welfare, String oneThing) {
-		
+
 		EnterpriseOffer enterpriseOffer = new EnterpriseOffer();
-		
+
 		enterpriseOffer.setEnterpriseId(enterpriseId);
 		enterpriseOffer.setDescription(description);
 		enterpriseOffer.setOfficeName(officeName);
@@ -93,6 +93,55 @@ public class EnterpriseService {
 		enterpriseOfferBhv.insert(enterpriseOffer);
 	}
 
+	public void update(int enterpriseId, String userId, String fixedUserId, String name,
+			String foundingDate, String founderName,
+			String address, String capital, String presidentName, String numOfEmployees, String business,
+			String phoneNumber, String url, String oneThing, String mailAddress) {
+		Enterprise enterprise = new Enterprise();
+		// 一度、新しいカラムをLoginテーブルにinsert
+		Login login = new Login();
+		Login fixedLogin = new Login();
+		login = loginBhv.selectByPKValue(userId);
+		fixedLogin = loginBhv.selectByPKValue(userId);
+		fixedLogin.setUserId(fixedUserId);
+		// ユーザーIDを編集したのであれば、
+		if (!(login.getUserId().equals(fixedLogin.getUserId()))) {
+			// 古いユーザー情報を削除（ログインテーブル）
+			loginBhv.insert(fixedLogin);
+			enterprise.setUserId(fixedUserId);
+			enterprise.setEnterpriseId(enterpriseId);
+			enterprise.setName(name);
+			enterprise.setFoundingDate(foundingDate);
+			enterprise.setFounderName(founderName);
+			enterprise.setAddress(address);
+			enterprise.setCapital(capital);
+			enterprise.setPresidentName(presidentName);
+			enterprise.setNumOfEmployees(numOfEmployees);
+			enterprise.setBusiness(business);
+			enterprise.setPhoneNumber(phoneNumber);
+			enterprise.setUrl(url);
+			enterprise.setOneThing(oneThing);
+			enterprise.setMailAddress(mailAddress);
+			enterpriseBhv.update(enterprise);
+			loginBhv.delete(login);
+		}
+		enterprise.setUserId(fixedUserId);
+		enterprise.setEnterpriseId(enterpriseId);
+		enterprise.setName(name);
+		enterprise.setFoundingDate(foundingDate);
+		enterprise.setFounderName(founderName);
+		enterprise.setAddress(address);
+		enterprise.setCapital(capital);
+		enterprise.setPresidentName(presidentName);
+		enterprise.setNumOfEmployees(numOfEmployees);
+		enterprise.setBusiness(business);
+		enterprise.setPhoneNumber(phoneNumber);
+		enterprise.setUrl(url);
+		enterprise.setOneThing(oneThing);
+		enterprise.setMailAddress(mailAddress);
+		enterpriseBhv.update(enterprise);
+	}
+
 	public Enterprise select(int enterpriseId) {
 		return enterpriseBhv.selectByPKValue(enterpriseId);
 	}
@@ -101,10 +150,17 @@ public class EnterpriseService {
 		EnterpriseCB enterpriseCB = new EnterpriseCB();
 		return enterpriseBhv.selectList(enterpriseCB);
 	}
-	
+
 	public void delete(String userId){
 		Login login = new Login();
 		login.setUserId(userId);
 		loginBhv.delete(login);
+	}
+
+	public void updatePass(String userId, String userPass) throws NoSuchAlgorithmException {
+		Login login = new Login();
+		login.setUserId(userId);
+		login.setUserPass(LoginHelper.getHash(userPass, userPass));
+		loginBhv.update(login);
 	}
 }

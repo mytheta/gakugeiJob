@@ -12,7 +12,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">ユーザーID:</label>
 					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" value="${student.userId}" required autofocus></div>
-				<div class="col-sm-7"><p class="help-block">12文字以内で入力してください。</p></div>
+				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 			</div>
 			<br>
 		

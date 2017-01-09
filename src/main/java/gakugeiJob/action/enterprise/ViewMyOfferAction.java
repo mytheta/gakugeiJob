@@ -11,10 +11,12 @@ import gakugeiJob.db.exentity.Enterprise;
 import gakugeiJob.db.exentity.EnterpriseAplicant;
 import gakugeiJob.db.exentity.EnterpriseFavo;
 import gakugeiJob.db.exentity.EnterpriseOffer;
+import gakugeiJob.db.exentity.Student;
 import gakugeiJob.dto.EnterpriseDto;
 import gakugeiJob.form.enterprise.EnterpriseOfferForm;
 import gakugeiJob.service.EnterpriseOfferService;
 import gakugeiJob.service.EnterpriseService;
+import gakugeiJob.service.StudentService;
 
 public class ViewMyOfferAction {
 
@@ -31,10 +33,15 @@ public class ViewMyOfferAction {
 	@Resource
 	EnterpriseOfferService enterpriseOfferService;
 
+	@Resource
+	StudentService studentService;
+
 	public ListResultBean<EnterpriseOffer> enterpriseOfferList;
 	public ListResultBean<Enterprise> enterpriseList;
 	public ListResultBean<EnterpriseFavo> enterpriseFavoList;
 	public ListResultBean<EnterpriseAplicant> enterpriseAplicantList;
+	public ListResultBean<EnterpriseAplicant> studentOfferList;
+	public ListResultBean<Student> studentList;
 	public int enterpriseId;
 	public int jobOfferId;
 
@@ -57,6 +64,18 @@ public class ViewMyOfferAction {
 		enterpriseFavoList = enterpriseOfferService.selectAllFavo();
 		enterpriseAplicantList = enterpriseOfferService.selectAllAplicant();
 		return "detail.jsp";
+	}
+
+	@Execute(validator = false)
+	@EnterpriseAuth
+	public String offer() {
+		jobOfferId = Integer.parseInt(enterpriseOfferForm.jobOfferId);
+
+		// jobOfferIdを渡して、求人に応募した学生遠とってきたいが、違う求人に応募した情報までとってきてしまう。なぜ？
+		studentOfferList = enterpriseOfferService.selectAplicant(jobOfferId);
+
+		studentList = studentService.selectAll();
+		return "offer.jsp";
 	}
 
 }

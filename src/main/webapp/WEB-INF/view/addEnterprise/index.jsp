@@ -20,13 +20,13 @@
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● ユーザーID:</label>
 					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" required autofocus></div>
-				<div class="col-sm-7"><p class="help-block">12文字以内で入力してください。</p></div>
+				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 				
 				</div>
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● ユーザーパスワード:</label>
 					<div class="col-sm-3"><input type="text" class="form-control" name="userPass" maxlength="12" required></div>
-				<div class="col-sm-7"><p class="help-block">12文字以内で入力してください。</p></div>
+				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 				</div>     	
 				
 				<div class="form-group">

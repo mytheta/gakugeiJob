@@ -20,7 +20,6 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/view/common/school/layout.jsp
             <a class="navbar-brand" href="/gakugeiJob/school/home/">GakugeiJob</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
@@ -30,19 +29,8 @@
               <li><a href="/gakugeiJob/school/addOffer/">求人登録</a></li>
               <li><a href="/gakugeiJob/school/viewMyOffer/">自校求人閲覧</a></li>
               <li class=><a href="/gakugeiJob/school/viewOtherOffer/">他校求人閲覧機能</a></li>
-=======
-            <a class="navbar-brand" href="/gakugeiJob/enterprise/home/">GakugeiJob</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/gakugeiJob/enterprise/home/">Home</a></li>
-              <li><a href="/gakugeiJob/enterprise/viewEnterprise/">MyPage</a></li>
-              <li><a href="/gakugeiJob/enterprise/addOffer/">求人登録</a></li>
-              <li><a href="/gakugeiJob/enterprise/viewMyOffer/">自社求人閲覧</a></li>
-               <li><a href="/gakugeiJob/enterprise/viewOtherOffer/">他社求人閲覧</a></li>
-              
->>>>>>> enterprise:src/main/webapp/WEB-INF/view/common/enterprise/layout.jsp
-            </ul>
+             </ul>
+
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/gakugeiJob/school/logout/">ログアウト</a></li>
             </ul>

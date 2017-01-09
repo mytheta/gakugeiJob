@@ -37,7 +37,8 @@
 			</div>
 
 			<div class="col-sm-offset-2 col-sm-9 text-right">
-				<a href="/gakugeiJob/school/editSchool/"><button class="btn btn-lg btn-default">編集</button></a>
+				<a href="/gakugeiJob/school/editSchool/"><button class="btn btn-lg btn-success">編集</button></a>
+				<a href="/gakugeiJob/school/deleteSchool/"><button class="btn btn-lg btn-warning">退会</button></a>
 			</div>
 		</div> <!-- container -->
 

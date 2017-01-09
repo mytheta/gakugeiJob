@@ -1,5 +1,5 @@
 <tiles:insert template="/WEB-INF/view/common/enterprise/layout.jsp" flush="true">
-	<tiles:put name="title" value="プロフィール変更" />
+	<tiles:put name="title" value="パスワード変更" />
 	<tiles:put name="content" type="string">
 		<div class="jumbotron text-center" style="background-color:#FFE;color:#000">	
  	 		<h1 class="text-center">GakugeiJob!</h1>

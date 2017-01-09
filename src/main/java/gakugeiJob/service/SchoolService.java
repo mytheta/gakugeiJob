@@ -1,6 +1,7 @@
 package gakugeiJob.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
 
 import org.seasar.dbflute.cbean.ListResultBean;
 import org.seasar.framework.container.annotation.tiger.Binding;
@@ -10,8 +11,10 @@ import gakugeiJob.db.cbean.LoginCB;
 import gakugeiJob.db.cbean.SchoolCB;
 import gakugeiJob.db.exbhv.LoginBhv;
 import gakugeiJob.db.exbhv.SchoolBhv;
+import gakugeiJob.db.exbhv.SchoolOfferBhv;
 import gakugeiJob.db.exentity.Login;
 import gakugeiJob.db.exentity.School;
+import gakugeiJob.db.exentity.SchoolOffer;
 import gakugeiJob.helper.LoginHelper;
 
 public class SchoolService {
@@ -21,9 +24,14 @@ public class SchoolService {
 	@Binding(bindingType = BindingType.MUST)
 	protected LoginBhv loginBhv;
 
+	@Binding(bindingType = BindingType.MUST)
+	protected SchoolOfferBhv schoolOfferBhv;
+
 	public ListResultBean<Login> loginList;
 
-	public int insertSchool(String userId, String userPass, String name, String kinds, String phoneNumber, String mailAddress, String url, String oneThing) throws NoSuchAlgorithmException{
+	public int insertSchool(String userId, String userPass, String name,
+			String kinds, String phoneNumber, String mailAddress, String url,
+			String oneThing) throws NoSuchAlgorithmException{
 		School school = new School();
 		Login login = new Login();
 
@@ -54,6 +62,29 @@ public class SchoolService {
 		//正常な処理
 		return 0;
 	}
+
+	public void insertOffer(int  schoolId, String description, String salary,
+			String workSchedule, String period, String address, String station,
+			String qualification, String welfare, String oneThing){
+
+		SchoolOffer schoolOffer = new SchoolOffer();
+
+		schoolOffer.setSchoolId(schoolId);
+		schoolOffer.setDescription(description);
+		schoolOffer.setSalary(salary);
+		schoolOffer.setWorkSchedule(workSchedule);
+		schoolOffer.setPeriod(period);
+		schoolOffer.setAddress(address);
+		schoolOffer.setStation(station);
+		schoolOffer.setQualification(qualification);
+		schoolOffer.setWelfare(welfare);
+		schoolOffer.setOneThing(oneThing);
+		Timestamp registrationDate = new Timestamp(System.currentTimeMillis());
+		schoolOffer.setRegistrationDate(registrationDate);
+		schoolOffer.setFavo(0);
+		schoolOfferBhv.insert(schoolOffer);
+	}
+
 
 	public School select(int schoolId){
 		return schoolBhv.selectByPKValue(schoolId);
@@ -112,6 +143,12 @@ public class SchoolService {
 		school.setUrl(url);
 		school.setOneThing(oneThing);
 		schoolBhv.update(school);
-
 	}
+
+	public void deleteSchool(String userId){
+		Login login = new Login();
+		login = loginBhv.selectByPKValue(userId);
+		loginBhv.delete(login);
+	}
+
 }
