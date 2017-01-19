@@ -14,6 +14,7 @@ import gakugeiJob.db.exentity.EnterpriseOffer;
 import gakugeiJob.db.exentity.Student;
 import gakugeiJob.dto.EnterpriseDto;
 import gakugeiJob.form.enterprise.EnterpriseOfferForm;
+import gakugeiJob.helper.DateHelper;
 import gakugeiJob.service.EnterpriseOfferService;
 import gakugeiJob.service.EnterpriseService;
 import gakugeiJob.service.StudentService;
@@ -42,6 +43,8 @@ public class ViewMyOfferAction {
 	public ListResultBean<EnterpriseAplicant> enterpriseAplicantList;
 	public ListResultBean<EnterpriseAplicant> studentOfferList;
 	public ListResultBean<Student> studentList;
+	public Student student;
+	public String birthday;
 	public int enterpriseId;
 	public int jobOfferId;
 
@@ -68,14 +71,34 @@ public class ViewMyOfferAction {
 
 	@Execute(validator = false)
 	@EnterpriseAuth
+	public String favo() {
+		jobOfferId = Integer.parseInt(enterpriseOfferForm.jobOfferId);
+		enterpriseFavoList = enterpriseOfferService.selectAllFavo();
+		studentList = studentService.selectAll();
+		for (Student student : studentList) {
+			if (student.getBirthday() != null)
+				birthday = DateHelper.formatYMD1(student.getBirthday());
+		}
+		return "favo.jsp";
+	}
+
+	@Execute(validator = false)
+	@EnterpriseAuth
 	public String offer() {
 		jobOfferId = Integer.parseInt(enterpriseOfferForm.jobOfferId);
-
-		// jobOfferIdを渡して、求人に応募した学生遠とってきたいが、違う求人に応募した情報までとってきてしまう。なぜ？
 		studentOfferList = enterpriseOfferService.selectAplicant(jobOfferId);
-
 		studentList = studentService.selectAll();
+		for (Student student : studentList) {
+			if (student.getBirthday() != null)
+				birthday = DateHelper.formatYMD1(student.getBirthday());
+		}
 		return "offer.jsp";
 	}
 
+	@Execute(validator = false)
+	@EnterpriseAuth
+	public String delete() {
+		enterpriseOfferService.deleteOffer(Integer.parseInt(enterpriseOfferForm.jobOfferId));
+		return "delete.jsp";
+	}
 }

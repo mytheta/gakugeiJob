@@ -77,7 +77,8 @@
 			</div>
 			
 			<div class="col-sm-offset-2 col-sm-9 text-right"><br>
-	     	    	<a href="/gakugeiJob/enterprise/editEnterprise/"><button class="btn btn-lg btn-default">編集</button></a>
+	     	    	<a href="/gakugeiJob/enterprise/editEnterprise/"><button class="btn btn-lg btn-success">編集</button></a>
+	     	    	<a href="/gakugeiJob/enterprise/deleteEnterprise/"><button class="btn btn-lg btn-warning">退会</button></a>
 	     	 </div>
       	</div> <!-- container -->
 		

@@ -1,24 +1,23 @@
 <tiles:insert template="/WEB-INF/view/common/enterprise/layout.jsp" flush="true">
 	<tiles:put name="title" value="MyPage" />
 	<tiles:put name="content" type="string">
-		<div class="jumbotron text-center" style="background-color:#FFF;color:#000">	
+		<div class="jumbotron text-center" style="background-color:#FFE;color:#000">	
  	 		<h1 class="text-center">GakugeiJob!</h1><br>
+ 	 		</div>
  	 		<h2 class="text-center">新規求人登録</h2>
- 	 	</div>
  	 	
  	 	<div class="container">
  	 	<h1 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>登録情報（●印は入力必須項目）<br>入力項目に適していないとき、またユーザーIDが既に使われている場合エラーになります。</small></h1><br>	
         	<form name="AddOfferActionForm" class="form-horizontal" action="/gakugeiJob/enterprise/addOffer/" method="POST">
 				<div class="form-group">
-				<label class="col-sm-2 control-label">● 仕事内容:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="description" maxlength="12" required autofocus></div>
-				<div class="col-sm-7"><p class="help-block">1000文字以内で入力してください。</p></div>
-				
+				<label class="col-sm-2 control-label">●仕事内容:</label>
+				<div class="col-xs-offset-2"><textarea class="form-control" name="description" maxlength="1000" placeholder="1000文字以内" required autofocus></textarea></div>
 				</div>
+				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● 勤務先名:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="officeName" maxlength="50" required></div>
-				<div class="col-sm-7"><p class="help-block">50文字以内で入力してください。</p></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="officeName" maxlength="50" placeholder="50文字以内" required></div>
+				<div class="col-sm-7"><p class="help-block"></p></div>
 				</div>     	
 				
 				<div class="form-group">

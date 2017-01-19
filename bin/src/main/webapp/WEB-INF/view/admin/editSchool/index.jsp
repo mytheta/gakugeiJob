@@ -14,7 +14,7 @@
         		<div class="form-group">
 				<label class="col-sm-4 control-label">ユーザーパスワード:</label>
 					<div class="col-sm-3"><input type="text" class="form-control" name="userPass" maxlength="12" required autofocus></div>
-				<div class="col-sm-5"><p class="help-block">12文字以内で入力してください。</p></div>
+				<div class="col-sm-5"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 				</div>
 				<input type="hidden" name="userId" value="<c:out value="${userId}" />" />
 				<div class="col-sm-offset-2 col-sm-10 text-right"><br>

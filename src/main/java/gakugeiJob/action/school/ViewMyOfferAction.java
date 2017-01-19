@@ -11,10 +11,12 @@ import gakugeiJob.db.exentity.School;
 import gakugeiJob.db.exentity.SchoolAplicant;
 import gakugeiJob.db.exentity.SchoolFavo;
 import gakugeiJob.db.exentity.SchoolOffer;
+import gakugeiJob.db.exentity.Student;
 import gakugeiJob.dto.SchoolDto;
 import gakugeiJob.form.school.SchoolOfferForm;
 import gakugeiJob.service.SchoolOfferService;
 import gakugeiJob.service.SchoolService;
+import gakugeiJob.service.StudentService;
 
 public class ViewMyOfferAction {
 
@@ -31,12 +33,17 @@ public class ViewMyOfferAction {
 	@Resource
 	SchoolOfferService schoolOfferService;
 
+	@Resource
+	StudentService studentService;
+
 	public ListResultBean<SchoolOffer> schoolOfferList;
 	public ListResultBean<School> schoolList;
 	public ListResultBean<SchoolFavo> schoolFavoList;
 	public ListResultBean<SchoolAplicant> schoolAplicantList;
+	public ListResultBean<SchoolAplicant> studentOfferList;
+	public ListResultBean<Student> studentList;
 	public int schoolId;
-	public int jobOfferId;
+	public int schoolOfferId;
 
 	@Execute(validator = false)
 	@SchoolAuth
@@ -51,7 +58,7 @@ public class ViewMyOfferAction {
 	@Execute(validator = false)
 	@SchoolAuth
 	public String view(){
-		jobOfferId = Integer.parseInt(schoolOfferForm.jobOfferId);
+		schoolOfferId = Integer.parseInt(schoolOfferForm.schoolOfferId);
 		schoolOfferList = schoolOfferService.selectAll();
 		schoolList = schoolService.selectAll();
 		schoolFavoList = schoolOfferService.selectAllFavo();
@@ -59,4 +66,21 @@ public class ViewMyOfferAction {
 		return "detail.jsp";
 	}
 
+	@Execute(validator = false)
+	@SchoolAuth
+	public String offer() {
+		schoolOfferId = Integer.parseInt(schoolOfferForm.schoolOfferId);
+		studentOfferList = schoolOfferService.selectAplicant(schoolOfferId);
+		studentList = studentService.selectAll();
+		return "offer.jsp";
+	}
+
+	@Execute(validator = false)
+	@SchoolAuth
+	public String favo() {
+		schoolOfferId = Integer.parseInt(schoolOfferForm.schoolOfferId);
+		schoolFavoList = schoolOfferService.selectAllFavo();
+		studentList = studentService.selectAll();
+		return "favo.jsp";
+	}
 }

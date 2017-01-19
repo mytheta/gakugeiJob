@@ -71,7 +71,7 @@
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● 電話番号:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="20" placeholder="20文字以内" required> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" placeholder="12文字以内" required> </div>
 					<div class="col-sm-7"><p class="help-block">ハイフン無しで入力してください。</p></div>
 				</div>
 				

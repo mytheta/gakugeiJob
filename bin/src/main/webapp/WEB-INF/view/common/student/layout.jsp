@@ -41,10 +41,10 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">お気に入り<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">キニナル〜<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="/gakugeiJob/student/viewEnterpriseFavo/">企業求人情報</a></li>
-                  <li><a href="/gakugeiJob/student/viewSchooFavo/">学校求人情報</a></li>
+                  <li><a href="/gakugeiJob/student/viewSchoolFavo/">学校求人情報</a></li>
                 </ul>
               </li>
             </ul>

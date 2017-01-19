@@ -30,7 +30,7 @@ public class AddOfferAction {
 		return "index.jsp";
 	}
 
-	@Execute(input ="/error/?redirect=true")
+	@Execute(validator = false)
 	@EnterpriseAuth
 	public String add() {
 		enterpriseId = enterpriseDto.enterpriseId;

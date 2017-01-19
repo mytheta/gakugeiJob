@@ -15,7 +15,7 @@
  	    		勤務地住所: <c:out value="${enterpriseOffer.address}" />
  	    	</div>
  	    	
-  			<div class="panel-body"><c:out value="${enterpriseOffer.description}" /></div>
+  			<div class="panel-body" style="word-break: break-word"><c:out value="${enterpriseOffer.description}" /></div>
    			<div class="panel-footer text-right text-muted">キニナル〜数: <c:out value="${enterpriseOffer.favo}" />&nbsp;&nbsp;&nbsp;
   			登録日: <c:out value="${enterpriseOffer.registrationDate}" /></div>
 		</div>
@@ -24,7 +24,10 @@
 			<form name="viewMyOfferActionForm" class="form-horizontal" action="/gakugeiJob/enterprise/viewMyOffer/" method="POST">
 				<input type="hidden" value="${enterpriseOffer.jobOfferId}" name="jobOfferId"/>
 				<button class="btn btn-lg btn-success" type="submit" name="view" value="View">詳細</button>&nbsp;&nbsp;
-				<button class="btn btn-lg btn-primary" type="submit" name="offer" value="Offer">応募者をみる</button>
+				<button class="btn btn-lg btn-primary" type="submit" name="offer" value="Offer">応募者をみる</button>&nbsp;&nbsp;
+				<button class="btn btn-lg btn-info" type="submit" name="favo" value="favo">キニナルをみる</button>&nbsp;&nbsp;
+				<button class="btn btn-lg btn-warning" type="submit" name="delete" value="Delete">削除</button>
+				
 			</form>
 		</div><br>
 		

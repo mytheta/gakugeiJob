@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	  <div class="container">
-
+ 
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -28,7 +28,7 @@
               <li><a href="/gakugeiJob/enterprise/viewEnterprise/">MyPage</a></li>
               <li><a href="/gakugeiJob/enterprise/addOffer/">求人登録</a></li>
               <li><a href="/gakugeiJob/enterprise/viewMyOffer/">自社求人閲覧</a></li>
-               <li><a href="/gakugeiJob/enterprise/viewOtherOffer/">他社求人閲覧</a></li>
+               <li><a href="/gakugeiJob/enterprise/viewOtherOffer/">他者求人閲覧</a></li>
               
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -38,7 +38,7 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
+ 
 		<div class="app">
 		  <tiles:insert attribute="content" />
 		  <hr>
@@ -46,7 +46,7 @@
 		    <p>&copy; by Group1</p>
 		  </footer>
 		</div>
-
+ 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

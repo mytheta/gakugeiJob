@@ -36,7 +36,7 @@ public class ViewOtherOfferAction {
 	public ListResultBean<SchoolFavo> schoolFavoList;
 	public ListResultBean<SchoolAplicant> schoolAplicantList;
 	public int schoolId;
-	public int jobOfferId;
+	public int schoolOfferId;
 
 	@Execute(validator = false)
 	@SchoolAuth
@@ -50,7 +50,7 @@ public class ViewOtherOfferAction {
 	@Execute(validator = false)
 	@SchoolAuth
 	public String view(){
-		jobOfferId = Integer.parseInt(schoolOfferForm.jobOfferId);
+		schoolOfferId = Integer.parseInt(schoolOfferForm.schoolOfferId);
 		schoolOfferList = schoolOfferService.selectAll();
 		schoolList = schoolService.selectAll();
 		schoolFavoList = schoolOfferService.selectAllFavo();

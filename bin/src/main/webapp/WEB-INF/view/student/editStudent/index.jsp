@@ -12,13 +12,13 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">ユーザーID:</label>
 					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" value="${student.userId}" required autofocus></div>
-				<div class="col-sm-7"><p class="help-block">12文字以内で入力してください。</p></div>
+				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 			</div>
 			<br>
 		
 			<div class="form-group">
 				<label class="col-sm-2 control-label">氏名:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="name" maxlength="10" value="${student.name}"></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="name" maxlength="10" value="${student.name}" required></div>
 				<div class="col-sm-7"><p class="help-block">10文字以内で入力してください。</p></div>
 			</div>
 			<br>
@@ -26,7 +26,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">誕生日:</label>
 				<div class="col-sm-3">
-				<input type="date" name="birthday" class="form-control" value="${birthday}">
+				<input type="date" name="birthday" class="form-control" value="${birthday}" required>
 				<div class="col-sm-7">&nbsp;</div>
 				</div>
 			</div>
@@ -72,21 +72,21 @@
 			
 			<div class="form-group">
 				<label class="col-sm-2 control-label">住所:</label>
-					<div class="col-sm-7"><textarea class="form-control" name="address" maxlength="100" style="max-width:650px"><c:out value="${student.address}" /></textarea></div>
+					<div class="col-sm-7"><textarea class="form-control" name="address" maxlength="100" style="max-width:650px" required><c:out value="${student.address}" /></textarea></div>
 				<div class="col-sm-3"><p class="help-block">100文字以内で入力してください。</p></div>
 			</div>
 			<br>
 			
 			<div class="form-group">
 				<label class="col-sm-2 control-label">メールアドレス:</label>
-					<div class="col-sm-6"><input type="text" class="form-control" name="mailAddress" maxlength="50" value="${student.mailAddress}"></div>
+					<div class="col-sm-6"><input type="text" class="form-control" name="mailAddress" maxlength="50" value="${student.mailAddress}" required></div>
 				<div class="col-sm-4"><p class="help-block">50文字以内で入力してください。</p></div>
 			</div>
 			<br>
 			
 			<div class="form-group">
 				<label class="col-sm-2 control-label">電話番号:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" value="${student.phoneNumber}"></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" value="${student.phoneNumber}" required></div>
 				<div class="col-sm-7"><p class="help-block">ハイフン無しで入力してください。</p></div>
 			</div>
 			

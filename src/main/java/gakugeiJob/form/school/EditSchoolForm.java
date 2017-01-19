@@ -16,7 +16,6 @@ public class EditSchoolForm {
 	@Maxlength(maxlength = 50)
 	public String name;
 
-	@Required
 	@Maxlength(maxlength = 20)
 	public String kinds;
 
@@ -28,11 +27,9 @@ public class EditSchoolForm {
 	@Maxlength(maxlength = 100)
 	public String mailAddress;
 
-	@Required
 	@Maxlength(maxlength = 100)
 	public String url;
 
-	@Required
 	@Maxlength(maxlength = 100)
 	public String oneThing;
 

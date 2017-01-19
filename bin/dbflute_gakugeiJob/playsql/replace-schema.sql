@@ -28,6 +28,7 @@ CREATE TABLE school
 	name varchar(50) NOT NULL COMMENT 'name',
 	kinds varchar(20) COMMENT 'kinds',
 	phone_number varchar(12) NOT NULL COMMENT 'phone_number',
+	mail_address varchar(100) NOT NULL COMMENT 'mail_address',	
 	url varchar(100) COMMENT 'url',
 	one_thing varchar(100) COMMENT 'one_thing',
 	PRIMARY KEY (school_id)

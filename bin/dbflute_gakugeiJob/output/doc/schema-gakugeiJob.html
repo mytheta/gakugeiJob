@@ -293,7 +293,7 @@ dl.procedurelist dd.column pre {
 	</tr>
 	<tr>
 		<td class="rownumcell">7</td>
-		<td><a href="#school" title="type=TABLE, primaryKey={school_id}, nameLength=6, columnCount=7">school</a></td>
+		<td><a href="#school" title="type=TABLE, primaryKey={school_id}, nameLength=6, columnCount=8">school</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#login" title="school_ibfk_1">login</a></td>
 		<td class="relcell"><a href="#school_offer" title="school_offer_ibfk_1">school_offer</a></td>
@@ -1180,7 +1180,7 @@ login
 		<td class="subcell">Integer</td>
 	</tr>
 </table>
-  <h2 id="school" title="type=TABLE, primaryKey={school_id}, nameLength=6, columnCount=7">
+  <h2 id="school" title="type=TABLE, primaryKey={school_id}, nameLength=6, columnCount=8">
 school
 </h2>
 <table summary="Columns in school">
@@ -1294,6 +1294,23 @@ school
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td id="schoolmail_address">mail_address</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"> mail_address</td>
+		<td class="subcell">mailAddress</td>
+		<td class="subcell">String</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td id="schoolurl">url</td>
 		<td class="typecell">VARCHAR</td>
@@ -1306,7 +1323,7 @@ school
 		<td class="subcell">String</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">7</td>
+		<td class="rownumcell">8</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>

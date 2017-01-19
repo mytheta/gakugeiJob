@@ -163,4 +163,10 @@ public class EnterpriseService {
 		login.setUserPass(LoginHelper.getHash(userPass, userPass));
 		loginBhv.update(login);
 	}
+
+	public void deleteEnterprise(String userId) {
+		Login login = new Login();
+		login = loginBhv.selectByPKValue(userId);
+		loginBhv.delete(login);
+	}
 }

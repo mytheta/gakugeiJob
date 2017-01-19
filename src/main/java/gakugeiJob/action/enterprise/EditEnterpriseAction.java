@@ -38,11 +38,10 @@ public class EditEnterpriseAction {
 	@EnterpriseAuth
 	public String edit() throws NumberFormatException, ParseException {
 		enterpriseService.update(enterpriseDto.enterpriseId, enterpriseDto.userId, editEnterpriseForm.userId,
-				editEnterpriseForm.name, editEnterpriseForm.foundingDate,
-				editEnterpriseForm.founderName, editEnterpriseForm.address, editEnterpriseForm.capital,
-				editEnterpriseForm.presidentName, editEnterpriseForm.numOfEmployees, editEnterpriseForm.business,
-				editEnterpriseForm.phoneNumber, editEnterpriseForm.url, editEnterpriseForm.oneThing,
-				editEnterpriseForm.mailAddress);
+				editEnterpriseForm.name, editEnterpriseForm.foundingDate, editEnterpriseForm.founderName,
+				editEnterpriseForm.address, editEnterpriseForm.capital, editEnterpriseForm.presidentName,
+				editEnterpriseForm.numOfEmployees, editEnterpriseForm.business, editEnterpriseForm.phoneNumber,
+				editEnterpriseForm.url, editEnterpriseForm.oneThing, editEnterpriseForm.mailAddress);
 		enterpriseDto.userId = editEnterpriseForm.userId;
 		return "confirm.jsp";
 	}

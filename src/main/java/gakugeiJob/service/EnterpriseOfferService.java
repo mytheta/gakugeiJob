@@ -1,5 +1,7 @@
 package gakugeiJob.service;
 
+import java.sql.Timestamp;
+
 import org.seasar.dbflute.cbean.ListResultBean;
 import org.seasar.framework.container.annotation.tiger.Binding;
 import org.seasar.framework.container.annotation.tiger.BindingType;
@@ -86,9 +88,38 @@ public class EnterpriseOfferService {
 
 	public ListResultBean<EnterpriseAplicant> selectAplicant(int jobOfferId) {
 		EnterpriseAplicantCB enterpriseAplicantCB = new EnterpriseAplicantCB();
-		EnterpriseAplicant enterpriseAplicant = new EnterpriseAplicant();
-		enterpriseAplicant.setJobOfferId(jobOfferId);
-		enterpriseAplicantCB.query().equals(enterpriseAplicant);
+		enterpriseAplicantCB.query().setJobOfferId_Equal(jobOfferId);
 		return enterpriseAplicantBhv.selectList(enterpriseAplicantCB);
+	}
+
+	public void deleteOffer(int jobOfferId) {
+		EnterpriseOffer enterpriseOffer = new EnterpriseOffer();
+		enterpriseOffer.setJobOfferId(jobOfferId);
+		enterpriseOfferBhv.delete(enterpriseOffer);
+	}
+
+	public void updateOffer(int enterpriseId, String description, String officeName, String address, String station,
+			String period, String holiday, String workingTime, String salary, String qualification, String welfare,
+			String oneThing, int jobOfferId) {
+
+
+		EnterpriseOffer enterpriseOffer = new EnterpriseOffer();
+
+		enterpriseOffer.setDescription(description);
+		enterpriseOffer.setOfficeName(officeName);
+		enterpriseOffer.setAddress(address);
+		enterpriseOffer.setStation(station);
+		enterpriseOffer.setPeriod(period);
+		enterpriseOffer.setHoliday(holiday);
+		enterpriseOffer.setWorkingTime(workingTime);
+		enterpriseOffer.setSalary(salary);
+		enterpriseOffer.setQualification(qualification);
+		enterpriseOffer.setWelfare(welfare);
+		enterpriseOffer.setOneThing(oneThing);
+		Timestamp registrationDate = new Timestamp(System.currentTimeMillis());
+		enterpriseOffer.setRegistrationDate(registrationDate);
+		enterpriseOffer.setFavo(0);
+		enterpriseOffer.setJobOfferId(jobOfferId);
+		enterpriseOfferBhv.update(enterpriseOffer);
 	}
 }

@@ -17,28 +17,28 @@ import gakugeiJob.db.cbean.*;
  * <pre>
  * [primary key]
  *     school_id
- *
+ * 
  * [column]
  *     school_id, user_id, name, kinds, phone_number, mail_address, url, one_thing
- *
+ * 
  * [sequence]
- *
- *
+ *     
+ * 
  * [identity]
  *     school_id
- *
+ * 
  * [version-no]
- *
- *
+ *     
+ * 
  * [foreign table]
  *     login
- *
+ * 
  * [referrer table]
  *     school_offer
- *
+ * 
  * [foreign property]
  *     login
- *
+ * 
  * [referrer property]
  *     schoolOfferList
  * </pre>
@@ -100,7 +100,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
         return doSelectCountUniquely(cb);
     }
 
-    protected int doSelectCountUniquely(SchoolCB cb) { // called by selectCount(cb)
+    protected int doSelectCountUniquely(SchoolCB cb) { // called by selectCount(cb) 
         assertCBStateValid(cb);
         return delegateSelectCountUniquely(cb);
     }
@@ -505,7 +505,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
      *     schoolBhv.<span style="color: #FD4747">update</span>(school);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
-     * }
+     * } 
      * </pre>
      * @param school The entity of update target. (NotNull) {PrimaryKeyRequired, ConcurrencyColumnRequired}
      * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
@@ -605,7 +605,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
      *     schoolBhv.<span style="color: #FD4747">delete</span>(school);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
-     * }
+     * } 
      * </pre>
      * @param school The entity of delete target. (NotNull) {PrimaryKeyRequired, ConcurrencyColumnRequired}
      * @exception org.seasar.dbflute.exception.EntityAlreadyDeletedException When the entity has already been deleted.
@@ -748,7 +748,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
      *     public ConditionBean setup(school entity, SchoolCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
-     *
+     * 
      *         <span style="color: #3F7E5E">// mapping</span>
      *         intoCB.specify().columnMyName().mappedFrom(cb.specify().columnFooName());
      *         intoCB.specify().columnMyCount().mappedFrom(cb.specify().columnFooCount());
@@ -759,7 +759,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
      *         <span style="color: #3F7E5E">//entity.set...;</span>
      *         <span style="color: #3F7E5E">// you don't need to set a value of exclusive control column</span>
      *         <span style="color: #3F7E5E">//entity.setVersionNo(value);</span>
-     *
+     * 
      *         return cb;
      *     }
      * });
@@ -1000,7 +1000,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
     /**
      * Insert the several entities by query with varying requests (modified-only for fixed value). <br />
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br />
-     * Other specifications are same as queryInsert(entity, setupper).
+     * Other specifications are same as queryInsert(entity, setupper). 
      * @param setupper The setup-per of query-insert. (NotNull)
      * @param option The option of insert for varying requests. (NotNull)
      * @return The inserted count.
@@ -1014,7 +1014,7 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
      * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br />
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
      * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br />
-     * Other specifications are same as queryUpdate(entity, cb).
+     * Other specifications are same as queryUpdate(entity, cb). 
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
      * School school = new School();
@@ -1071,27 +1071,27 @@ public abstract class BsSchoolBhv extends AbstractBehaviorWritable {
      *   o selectList()
      *   o execute()
      *   o call()
-     *
+     * 
      * {Entity}
      *   o entityHandling().selectEntity()
      *   o entityHandling().selectEntityWithDeletedCheck()
-     *
+     * 
      * {Paging}
      *   o autoPaging().selectList()
      *   o autoPaging().selectPage()
      *   o manualPaging().selectList()
      *   o manualPaging().selectPage()
-     *
+     * 
      * {Cursor}
      *   o cursorHandling().selectCursor()
-     *
+     * 
      * {Option}
      *   o dynamicBinding().selectList()
      *   o removeBlockComment().selectList()
      *   o removeLineComment().selectList()
      *   o formatSql().selectList()
      * </pre>
-     * @return The basic executor of outside-SQL. (NotNull)
+     * @return The basic executor of outside-SQL. (NotNull) 
      */
     public OutsideSqlBasicExecutor<SchoolBhv> outsideSql() {
         return doOutsideSql();

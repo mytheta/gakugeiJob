@@ -138,6 +138,7 @@ public class SchoolService {
 		school.setUserId(fixedUserId);
 		school.setSchoolId(schoolId);
 		school.setName(name);
+		school.setKinds(kinds);
 		school.setPhoneNumber(phoneNumber);
 		school.setMailAddress(mailAddress);
 		school.setUrl(url);
