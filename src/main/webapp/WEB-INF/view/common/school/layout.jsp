@@ -23,8 +23,8 @@
             <a class="navbar-brand" href="/gakugeiJob/school/home/">GakugeiJob</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/gakugeiJob/school/home/">Home</a></li>
+            <ul class="nav navbar-nav" id="nav">
+              <li><a href="/gakugeiJob/school/home/">Home</a></li>
               <li><a href="/gakugeiJob/school/viewSchool/">Mypage</a></li>
               <li><a href="/gakugeiJob/school/addOffer/">求人登録</a></li>
               <li><a href="/gakugeiJob/school/viewMyOffer/">自校求人閲覧</a></li>
@@ -55,4 +55,24 @@
     <script src="/gakugeiJob/js/jquery.min.js"></script>
     <script src="/gakugeiJob/js/bootstrap.min.js"></script>
 	</body>
+
+	<script type='text/javascript'>
+		$(function(){
+			$('#navbar li a').each(function(){
+				var $href = $(this).attr('href');
+				if(location.href.match($href)) {
+					$(this).parent().addClass('active');
+				}
+				else {
+					$('#navbar li a').removeClass('active');
+				}
+				if(location.href.match("/gakugeiJob/school/editSchool/") && $href=="/gakugeiJob/school/viewSchool/"){
+					$(this).parent().addClass('active');
+				}
+				if(location.href.match("/gakugeiJob/school/editOffer/") && $href=="/gakugeiJob/school/viewMyOffer/"){
+					$(this).parent().addClass('active');
+				}
+			});
+		});
+	</script>
 </html>

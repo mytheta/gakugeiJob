@@ -24,7 +24,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/gakugeiJob/student/home/">Home</a></li>
+              <li><a href="/gakugeiJob/student/home/">Home</a></li>
               <li><a href="/gakugeiJob/student/viewStudent/">MyPage</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">求人情報閲覧<span class="caret"></span></a>
@@ -72,4 +72,27 @@
     <script src="/gakugeiJob/js/jquery.min.js"></script>
     <script src="/gakugeiJob/js/bootstrap.min.js"></script>
 	</body>
+
+	<script type='text/javascript'>
+		$(function(){
+			$('#navbar li a').each(function(){
+				var $href = $(this).attr('href');
+				if(location.href.match($href)) {
+					var $class = $(this).parent().parent().parent().attr('class');
+					if($class == "dropdown" ){
+						$(this).parent().parent().parent().addClass('active');
+					}
+					else{
+						$(this).parent().addClass('active');
+					}
+				}
+				else {
+					$('#navbar li a').removeClass('active');
+				}
+				if(location.href.match("/gakugeiJob/student/editStudent/") && $href=="/gakugeiJob/student/viewStudent/"){
+					$(this).parent().addClass('active');
+				}
+			});
+		});
+	</script>
 </html>

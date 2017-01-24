@@ -43,6 +43,7 @@ public class EditEnterpriseForm {
 	public String phoneNumber;
 
 	@Maxlength(maxlength = 100)
+	@Mask(mask = "https?://.+")
 	public String url;
 
 	@Maxlength(maxlength = 100)
@@ -50,5 +51,6 @@ public class EditEnterpriseForm {
 
 	@Required
 	@Maxlength(maxlength = 100)
+	@Mask(mask = "[a-z0-9._%+-]+@[a-z0-9.-]+¥.[a-z]{2,3}$")
 	public String mailAddress;
 }

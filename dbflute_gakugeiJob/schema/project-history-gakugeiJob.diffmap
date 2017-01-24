@@ -1,4 +1,37 @@
 map:{
+    ; 2017/01/21 23:07:06 = map:{
+        ; diffDate = 2017/01/21 23:07:06
+        ; tableDiff = map:{
+            ; enterprise = map:{
+                ; tableName = enterprise
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; user_id = map:{
+                        ; columnName = user_id
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+            ; school = map:{
+                ; tableName = school
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; user_id = map:{
+                        ; columnName = user_id
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2016/12/29 10:48:28 = map:{
         ; diffDate = 2016/12/29 10:48:28
         ; tableDiff = map:{

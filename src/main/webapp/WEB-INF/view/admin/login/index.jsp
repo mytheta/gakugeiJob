@@ -15,8 +15,8 @@
  	 	<div class="container">
         	<form name="admin_loginActionForm" class="form-signin" action="/gakugeiJob/admin/login/" method="POST">
 	        	<h2 class="form-signin-heading text-center">Check Please!</h2>
-	       		<input type="password" name="adminPass1" class="form-control" placeholder="adminPass1" maxlength="20" required autofocus>
-	      	    <input type="password" name="adminPass2" class="form-control" placeholder="adminPass2" maxlength="20" required>
+	       		<input type="password" name="adminPass1" class="form-control" placeholder="adminPass1" maxlength="12" required autofocus>
+	      	    <input type="password" name="adminPass2" class="form-control" placeholder="adminPass2" maxlength="12" required>
 	     	    <button class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Login">Check</button>
       		</form>
 		</div> <!-- container -->

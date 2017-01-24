@@ -91,7 +91,7 @@ public abstract class BsEnterprise implements Entity, Serializable, Cloneable {
     /** enterprise_id: {PK, ID, NotNull, INT UNSIGNED(10)} */
     protected Integer _enterpriseId;
 
-    /** user_id: {IX, VARCHAR(12), FK to login} */
+    /** user_id: {IX, NotNull, VARCHAR(12), FK to login} */
     protected String _userId;
 
     /** name: {NotNull, VARCHAR(50)} */
@@ -395,7 +395,7 @@ public abstract class BsEnterprise implements Entity, Serializable, Cloneable {
     }
 
     /**
-     * [get] user_id: {IX, VARCHAR(12), FK to login} <br />
+     * [get] user_id: {IX, NotNull, VARCHAR(12), FK to login} <br />
      * @return The value of the column 'user_id'. (NullAllowed)
      */
     public String getUserId() {
@@ -403,7 +403,7 @@ public abstract class BsEnterprise implements Entity, Serializable, Cloneable {
     }
 
     /**
-     * [set] user_id: {IX, VARCHAR(12), FK to login} <br />
+     * [set] user_id: {IX, NotNull, VARCHAR(12), FK to login} <br />
      * @param userId The value of the column 'user_id'. (NullAllowed)
      */
     public void setUserId(String userId) {

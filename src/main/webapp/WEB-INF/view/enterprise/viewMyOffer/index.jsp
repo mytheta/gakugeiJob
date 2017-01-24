@@ -8,14 +8,14 @@
  	 	<c:forEach items="${enterpriseList}" var="enterprise">
  	 	<c:forEach items="${enterpriseOfferList}" var="enterpriseOffer">
  	 	<c:if test="${ (enterprise.enterpriseId == enterpriseOffer.enterpriseId) && (enterprise.enterpriseId == enterpriseId)}">
- 	 	<div class="panel panel-default">
+ 	 	<div class="panel panel-default" style="word-break: break-word">
  	    	<div class="panel-heading">
  	    		企業名: <c:out value="${enterprise.name}" /><br><br>
  	    		勤務先名: <c:out value="${enterpriseOffer.officeName}" /><br><br>
  	    		勤務地住所: <c:out value="${enterpriseOffer.address}" />
  	    	</div>
  	    	
-  			<div class="panel-body" style="word-break: break-word"><c:out value="${enterpriseOffer.description}" /></div>
+  			<div class="panel-body" style="word-break: break-word"><pre style="background-color:#FFF; border:0;"><c:out value="${enterpriseOffer.description}" /></pre></div>
    			<div class="panel-footer text-right text-muted">キニナル〜数: <c:out value="${enterpriseOffer.favo}" />&nbsp;&nbsp;&nbsp;
   			登録日: <c:out value="${enterpriseOffer.registrationDate}" /></div>
 		</div>
@@ -25,8 +25,8 @@
 				<input type="hidden" value="${enterpriseOffer.jobOfferId}" name="jobOfferId"/>
 				<button class="btn btn-lg btn-success" type="submit" name="view" value="View">詳細</button>&nbsp;&nbsp;
 				<button class="btn btn-lg btn-primary" type="submit" name="offer" value="Offer">応募者をみる</button>&nbsp;&nbsp;
-				<button class="btn btn-lg btn-info" type="submit" name="favo" value="favo">キニナルをみる</button>&nbsp;&nbsp;
-				<button class="btn btn-lg btn-warning" type="submit" name="delete" value="Delete">削除</button>
+				<button class="btn btn-lg btn-warning" type="submit" name="favo" value="favo">キニナルをみる</button>&nbsp;&nbsp;
+				<button class="btn btn-lg btn-danger" type="submit" name="delete" value="Delete">削除</button>
 				
 			</form>
 		</div><br>

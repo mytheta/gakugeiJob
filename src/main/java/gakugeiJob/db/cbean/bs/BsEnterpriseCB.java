@@ -321,7 +321,7 @@ public class BsEnterpriseCB extends AbstractConditionBean {
          */
         public HpSpecifiedColumn columnEnterpriseId() { return doColumn("enterprise_id"); }
         /**
-         * user_id: {IX, VARCHAR(12), FK to login}
+         * user_id: {IX, NotNull, VARCHAR(12), FK to login}
          * @return The information object of specified column. (NotNull)
          */
         public HpSpecifiedColumn columnUserId() { return doColumn("user_id"); }

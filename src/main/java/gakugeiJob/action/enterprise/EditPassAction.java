@@ -30,7 +30,7 @@ public class EditPassAction {
 		return "index.jsp";
 	}
 
-	@Execute(input = "/error/?redirect=true")
+	@Execute(validator = false)
 	@EnterpriseAuth
 	public String edit() throws NoSuchAlgorithmException {
 		enterpriseService.updatePass(enterpriseDto.userId, editPassForm.userPass);

@@ -22,7 +22,7 @@
             name="enterprise_id" pkName="PRIMARY" primaryKey="true"
             required="true" size="10" type="INTEGER"/>
         <column comment="user_id" dbType="VARCHAR" javaType="String"
-            name="user_id" size="12" type="VARCHAR"/>
+            name="user_id" required="true" size="12" type="VARCHAR"/>
         <column comment="name" dbType="VARCHAR" javaType="String"
             name="name" required="true" size="50" type="VARCHAR"/>
         <column comment="founding_date" dbType="VARCHAR"
@@ -153,7 +153,7 @@
             dbType="INT UNSIGNED" javaType="Integer" name="school_id"
             pkName="PRIMARY" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column comment="user_id" dbType="VARCHAR" javaType="String"
-            name="user_id" size="12" type="VARCHAR"/>
+            name="user_id" required="true" size="12" type="VARCHAR"/>
         <column comment="name" dbType="VARCHAR" javaType="String"
             name="name" required="true" size="50" type="VARCHAR"/>
         <column comment="kinds" dbType="VARCHAR" javaType="String"

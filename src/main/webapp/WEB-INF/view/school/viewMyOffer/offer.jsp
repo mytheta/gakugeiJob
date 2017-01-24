@@ -15,10 +15,12 @@
  	    		誕生日：<c:out value="${student.birthday}" /><br><br>
  	    		電話番号：<c:out value="${student.phoneNumber}" /><br><br>
 				メールアドレス：<c:out value="${student.mailAddress}" /><br><br>
- 	    		タイトル: <c:out value="${offer.title}" /><br><br>
- 	    		内容: <c:out value="${offer.content}" />
  	    	</div>
- 	    </div>
+ 	    	<div class="panel-body" style="word-break: break-word" class="well well-sm">
+ 	    			タイトル: <c:out value="${offer.title}" /><br><br>
+ 	    			内容: <c:out value="${offer.content}" />
+ 		    </div>
+ 	  	  </div>
 
 		<form name="deleteStudentOfferActionForm" class="form-horizontal" action="/gakugeiJob/school/deleteStudentOffer/" method="POST">
 			<div class="col-sm-offset-2 col-sm-9 text-right">

@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	  <div class="container">
- 
+
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -24,12 +24,12 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/gakugeiJob/enterprise/home/">Home</a></li>
+              <li><a href="/gakugeiJob/enterprise/home/">Home</a></li>
               <li><a href="/gakugeiJob/enterprise/viewEnterprise/">MyPage</a></li>
               <li><a href="/gakugeiJob/enterprise/addOffer/">求人登録</a></li>
               <li><a href="/gakugeiJob/enterprise/viewMyOffer/">自社求人閲覧</a></li>
                <li><a href="/gakugeiJob/enterprise/viewOtherOffer/">他者求人閲覧</a></li>
-              
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/gakugeiJob/enterprise/editPass/">パスワード変更</a></li>
@@ -38,7 +38,7 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
- 
+
 		<div class="app">
 		  <tiles:insert attribute="content" />
 		  <hr>
@@ -46,11 +46,30 @@
 		    <p>&copy; by Group1</p>
 		  </footer>
 		</div>
- 
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/gakugeiJob/js/jquery.min.js"></script>
     <script src="/gakugeiJob/js/bootstrap.min.js"></script>
 	</body>
+		<script type='text/javascript'>
+		$(function(){
+			$('#navbar li a').each(function(){
+				var $href = $(this).attr('href');
+				if(location.href.match($href)) {
+					$(this).parent().addClass('active');
+				}
+				else {
+					$('#navbar li a').removeClass('active');
+				}
+				if(location.href.match("/gakugeiJob/enterprise/editEnterprise/") && $href=="/gakugeiJob/enterprise/viewEnterprise/"){
+					$(this).parent().addClass('active');
+				}
+				if(location.href.match("/gakugeiJob/enterprise/editOffer/") && $href=="/gakugeiJob/enterprise/viewMyOffer/"){
+					$(this).parent().addClass('active');
+				}
+			});
+		});
+	</script>
 </html>

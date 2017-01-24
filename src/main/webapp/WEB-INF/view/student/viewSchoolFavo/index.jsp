@@ -11,10 +11,10 @@
  	 	<c:if test="${(schoolFavo.studentId == studentId) && (school.schoolId == schoolOffer.schoolId) && (schoolOffer.schoolOfferId == schoolFavo.schoolOfferId)}">
  	 	<div class="panel panel-default">
  	    	<div class="panel-heading">
- 	    		勤務学校名: <c:out value="${school.name}" /><br><br>
- 	    		勤務地住所: <c:out value="${schoolOffer.address}" />
+ 	    		<pre style="background-color:#f5f5f5; border:0;">勤務学校名: <c:out value="${school.name}" /></pre>
+ 	    		<pre style="background-color:#f5f5f5; border:0;">勤務地住所: <c:out value="${schoolOffer.address}" /></pre>
  	    	</div>
-  			<div class="panel-body"  style="word-break: break-word"><c:out value="${schoolOffer.description}" /></div>
+  			<div class="panel-body"  style="word-break: break-word"><pre style="background-color:#FFF; border:0;"><c:out value="${schoolOffer.description}" /></pre></div>
    			<div class="panel-footer text-right text-muted">キニナル〜数: <c:out value="${schoolOffer.favo}" />&nbsp;&nbsp;&nbsp;
   			登録日: <c:out value="${schoolOffer.registrationDate}" /></div>
 		</div>

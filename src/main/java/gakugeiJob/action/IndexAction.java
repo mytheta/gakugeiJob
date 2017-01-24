@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.annotation.Resource;
 
+import org.apache.poi.hssf.record.formula.functions.False;
 import org.seasar.dbflute.cbean.ListResultBean;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
@@ -56,12 +57,14 @@ public class IndexAction{
 	protected ListResultBean<Enterprise> enterpriseList;
 	protected ListResultBean<School> schoolList;
 	
+	public int result;
+	
     @Execute(validator = false)
     public String index(){
         return "index.jsp";
     }
     
-    @Execute(input = "/error/?redirect=true")
+    @Execute(validator = false)
     public String login() throws NoSuchAlgorithmException{
 		Login login = loginService.selectUserByUserIdUserPassRole(loginForm.userId,loginForm.userPass);
     	if(login != null){
@@ -100,6 +103,7 @@ public class IndexAction{
     			return "/student/home/?redirect=true";
     		}
     	}
-    	return "/?redirect=true";
+    	result = -1;
+    	return "/";
     }
 }

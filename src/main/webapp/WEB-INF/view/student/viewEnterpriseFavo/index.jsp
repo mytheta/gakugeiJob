@@ -11,11 +11,11 @@
  	 	<c:if test="${(enterpriseFavo.studentId == studentId) && (enterprise.enterpriseId == enterpriseOffer.enterpriseId) && (enterpriseOffer.jobOfferId == enterpriseFavo.jobOfferId)}">
  	 	<div class="panel panel-default">
  	    	<div class="panel-heading">
- 	    		企業名: <c:out value="${enterprise.name}" /><br><br>
- 	    		勤務先名: <c:out value="${enterprise.name}" /><br><br>
- 	    		勤務地住所: <c:out value="${enterpriseOffer.address}" />
+ 	    		<pre style="background-color:#f5f5f5; border:0;">企業名: <c:out value="${enterprise.name}" /><br></pre>
+ 	    		<pre style="background-color:#f5f5f5; border:0;">勤務先名: <c:out value="${enterprise.name}" /><br></pre>
+ 	    		<pre style="background-color:#f5f5f5; border:0;">勤務地住所: <c:out value="${enterpriseOffer.address}" /></pre>
  	    	</div>
-  			<div class="panel-body"  style="word-break: break-word"><c:out value="${enterpriseOffer.description}" /></div>
+  			<div class="panel-body"><pre style="background-color:#FFF; border:0;"><c:out value="${enterpriseOffer.description}" /></pre></div>
    			<div class="panel-footer text-right text-muted">キニナル〜数: <c:out value="${enterpriseOffer.favo}" />&nbsp;&nbsp;&nbsp;
   			登録日: <c:out value="${enterpriseOffer.registrationDate}" /></div>
 		</div>

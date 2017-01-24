@@ -5,7 +5,7 @@
  	 		<h1 class="text-center">GakugeiJob!</h1>
  	 	</div>
 		<h2 class="text-center page-header">プロフィール編集<br>
-		<small>入力項目に適していないとき、エラーになります。必ず全項目入力のこと。</small>
+		<small>入力項目に適していないとき、エラーになります。●がついているところは必須の入力項目です。</small>
 		</h2>
 		<div class="container">
 		<form name="editEnterpriseActionForm" class="form-horizontal" action="/gakugeiJob/enterprise/editEnterprise/" method="POST">
@@ -14,7 +14,7 @@
 					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" value="${enterprise.userId}" required autofocus></div>
 				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 			</div>
-
+ 
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● 企業名:</label>
 					<div class="col-sm-10"><input type="text" class="form-control" name="name" value="${enterprise.name}" maxlength="50" placeholder="50文字以内"required></div>
@@ -57,13 +57,13 @@
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● 電話番号:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" value="${enterprise.phoneNumber}" maxlength="20" placeholder="20文字以内" required> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" value="${enterprise.phoneNumber}" maxlength="12" placeholder="12文字以内" required> </div>
 					<div class="col-sm-7"><p class="help-block">ハイフン無しで入力してください。</p></div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">企業URL:</label>
-					<div class="col-sm-10"><input type="text" class="form-control" name="url" value="${enterprise.url}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-10"><input type="text" class="form-control" name="url" value="${enterprise.url}" pattern="https?://.+" maxlength="100" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
@@ -73,11 +73,11 @@
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">● メールアドレス:</label>
-					<div class="col-sm-10"><input type="text" class="form-control" name="mailAddress" value="${enterprise.mailAddress}" maxlength="100" placeholder="100文字以内" required> </div>
+					<div class="col-sm-10"><input type="text" class="form-control" name="mailAddress" value="${enterprise.mailAddress}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="100" placeholder="100文字以内" required> </div>
 				</div>
 		
 			<div class="col-sm-offset-2 col-sm-9 text-right"><br>
-	     	    <button type="submit" class="btn btn-lg btn-default" name="edit" value="Edit">編集</button>
+	     	    <button type="submit" class="btn btn-lg btn-success" name="edit" value="Edit">編集</button>
 	     	</div>
 	    </form>
       	</div> <!-- container -->

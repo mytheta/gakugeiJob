@@ -27,10 +27,9 @@ public class LoginAction {
         return "index.jsp";
     }
 	
-	@Execute(input = "/error/?redirect=true")
+	@Execute(validator = false)
 	@AdminAuth
 	public String login() throws NoSuchAlgorithmException{
-		System.out.println("aiueo");
 		Admin admin = loginService.selectAdminByUserIdAdminPass(loginForm.adminPass1, loginForm.adminPass2);
 		if(admin != null)
 			return "/admin/home/?redirect=true";

@@ -14,7 +14,7 @@
 		<div class="container">
 		<form name="editOfferActionForm" class="form-horizontal" action="/gakugeiJob/enterprise/editOffer/" method="POST">
 			<div class="form-group">
-				<label class="col-sm-2 control-label">勤務先名:</label>
+				<label class="col-sm-2 control-label">●勤務先名:</label>
 					<div class="col-sm-3"><input type="text" class="form-control" name="officeName" maxlength="50" value="${enterpriseOffer.officeName}" required autofocus></div>
 				<div class="col-sm-7"><p class="help-block">50文字以内で入力してください。</p></div>
 			</div>
@@ -26,18 +26,18 @@
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-2 control-label">給与情報:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="salary" value="${enterpriseOffer.salary}" maxlength="20" placeholder="20文字以内"> </div>
+				<label class="col-sm-2 control-label">●給与情報:</label>
+					<div class="col-sm-3"><input type="text" class="form-control" name="salary" value="${enterpriseOffer.salary}" maxlength="100" placeholder="100文字以内" required> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">経験資格:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="qualification" value="${enterpriseOffer.qualification}" maxlength="20" placeholder="20文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="qualification" value="${enterpriseOffer.qualification}" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務先住所:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="address" value="${enterpriseOffer.address}" maxlength="20" placeholder="20文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="address" value="${enterpriseOffer.address}" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
@@ -47,27 +47,27 @@
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務地:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="address" value="${enterpriseOffer.address}" maxlength="20" placeholder="20文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="address" value="${enterpriseOffer.address}" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務期間:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="period" value="${enterpriseOffer.period}" maxlength="20" placeholder="20文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="period" value="${enterpriseOffer.period}" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務時間:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="workingTime" value="${enterpriseOffer.workingTime}" maxlength="20" placeholder="20文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="workingTime" value="${enterpriseOffer.workingTime}" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">休日・休暇:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="holiday" value="${enterpriseOffer.holiday}" maxlength="20" placeholder="20文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="holiday" value="${enterpriseOffer.holiday}" maxlength="100" placeholder="100文字以内"> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">待遇・福利厚生:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="welfare" value="${enterpriseOffer.welfare}" maxlength="20" placeholder="20文字以内" > </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="welfare" value="${enterpriseOffer.welfare}" maxlength="100" placeholder="100文字以内" > </div>
 				</div>
 				
 				

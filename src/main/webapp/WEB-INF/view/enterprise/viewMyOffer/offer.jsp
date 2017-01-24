@@ -40,6 +40,8 @@
 	     	</div>
 		</form>
 		<br>
+		<br>
+		<br>
 		</c:if>
 		</c:forEach>
 		</c:forEach>

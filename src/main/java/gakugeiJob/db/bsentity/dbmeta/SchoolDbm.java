@@ -94,7 +94,7 @@ public class SchoolDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnSchoolId = cci("school_id", "school_id", null, null, true, "schoolId", Integer.class, true, true, "INT UNSIGNED", 10, 0, null, false, null, null, null, "schoolOfferList", null);
-    protected final ColumnInfo _columnUserId = cci("user_id", "user_id", null, null, false, "userId", String.class, false, false, "VARCHAR", 12, 0, null, false, null, null, "login", null, null);
+    protected final ColumnInfo _columnUserId = cci("user_id", "user_id", null, null, true, "userId", String.class, false, false, "VARCHAR", 12, 0, null, false, null, null, "login", null, null);
     protected final ColumnInfo _columnName = cci("name", "name", null, null, true, "name", String.class, false, false, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnKinds = cci("kinds", "kinds", null, null, false, "kinds", String.class, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnPhoneNumber = cci("phone_number", "phone_number", null, null, true, "phoneNumber", String.class, false, false, "VARCHAR", 12, 0, null, false, null, null, null, null, null);

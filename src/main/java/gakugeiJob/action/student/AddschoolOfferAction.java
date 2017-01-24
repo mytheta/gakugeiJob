@@ -1,5 +1,8 @@
 package gakugeiJob.action.student;
 
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
 import javax.annotation.Resource;
 
 import org.seasar.dbflute.cbean.ListResultBean;
@@ -37,6 +40,8 @@ public class AddSchoolOfferAction {
 	public ListResultBean<School> schoolList;
 	public int schoolOfferId;
 	public int studentId;
+	
+	public ArrayList<String> errorMessages;
 	
 	@Execute(validator = false)
 	@StudentAuth
@@ -78,6 +83,34 @@ public class AddSchoolOfferAction {
 	@Execute(validator = false)
 	@StudentAuth
 	public String offer(){
+		int i = 0;
+    	//エラーチェック変数
+    	int result = 0;
+    	errorMessages = new ArrayList<String>();
+    	
+    	//以下は形式チェック
+    	//タイトルに対するエラー遷移
+    	if(!(addSchoolOfferForm.title == null || addSchoolOfferForm.title.length() == 0)){
+    		if(!(Pattern.compile(".{1,100}", Pattern.DOTALL).matcher(addSchoolOfferForm.title)).matches()){
+    		result = -1;
+    		errorMessages.add("そのタイトルは正しい形式ではありません。");
+    		i++;
+    	}
+    	}
+    	//コンテンツに対するエラー遷移
+    	if(!(addSchoolOfferForm.content == null || addSchoolOfferForm.content.length() == 0)){
+    		if(!(Pattern.compile(".{1,400}", Pattern.DOTALL).matcher(addSchoolOfferForm.content)).matches()){
+    			result = -1;
+    			errorMessages.add("その応募内容は正しい形式ではありません。");
+    			i++;
+    		}
+    	}
+    	
+    	//フォームに入力されたものが正しくなかったらエラー遷移
+    	if(result != 0){
+    		return "error.jsp";
+    	}
+		
 		schoolOfferService.insertSchoolAplicant(Integer.parseInt(addSchoolOfferForm.schoolOfferId), studentDto.studentId, addSchoolOfferForm.title, addSchoolOfferForm.content);
 		return "confirm.jsp";
 	}

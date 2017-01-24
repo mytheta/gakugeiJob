@@ -6,10 +6,10 @@ import org.seasar.struts.annotation.Required;
 public class LoginForm {
 	
 	@Required
-	@Maxlength(maxlength = 20)
+	@Maxlength(maxlength = 12)
 	public String userId;
 
 	@Required
-	@Maxlength(maxlength = 20)
+	@Maxlength(maxlength = 12)
 	public String userPass;
 }

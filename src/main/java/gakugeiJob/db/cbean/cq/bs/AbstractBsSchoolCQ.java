@@ -275,7 +275,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as equal.
      */
     public void setUserId_Equal(String userId) {
@@ -288,7 +288,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as notEqual.
      */
     public void setUserId_NotEqual(String userId) {
@@ -301,7 +301,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as greaterThan.
      */
     public void setUserId_GreaterThan(String userId) {
@@ -310,7 +310,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as lessThan.
      */
     public void setUserId_LessThan(String userId) {
@@ -319,7 +319,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as greaterEqual.
      */
     public void setUserId_GreaterEqual(String userId) {
@@ -328,7 +328,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as lessEqual.
      */
     public void setUserId_LessEqual(String userId) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userIdList The collection of userId as inScope.
      */
     public void setUserId_InScope(Collection<String> userIdList) {
@@ -350,7 +350,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userIdList The collection of userId as notInScope.
      */
     public void setUserId_NotInScope(Collection<String> userIdList) {
@@ -363,7 +363,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
 
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as prefixSearch.
      */
     public void setUserId_PrefixSearch(String userId) {
@@ -373,7 +373,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...} <br />
      * And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as likeSearch.
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -384,7 +384,7 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
      * And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @param userId The value of userId as notLikeSearch.
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -419,24 +419,6 @@ public abstract class AbstractBsSchoolCQ extends AbstractConditionQuery {
         registerNotInScopeRelation(cb.query(), "user_id", "user_id", subQueryPropertyName, "login");
     }
     public abstract String keepUserId_NotInScopeRelation_Login(LoginCQ subQuery);
-
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
-     */
-    public void setUserId_IsNull() { regUserId(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
-     */
-    public void setUserId_IsNullOrEmpty() { regUserId(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
-     */
-    public void setUserId_IsNotNull() { regUserId(CK_ISNN, DOBJ); }
 
     protected void regUserId(ConditionKey k, Object v) { regQ(k, v, getCValueUserId(), "user_id"); }
     abstract protected ConditionValue getCValueUserId();

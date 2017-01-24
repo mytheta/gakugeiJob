@@ -16,11 +16,14 @@
  	 		
         	<form name="indexActionForm" class="form-signin" action="/gakugeiJob/" method="POST">
 	        	<h2 class="form-signin-heading text-center">Please sign in</h2>
-	       		<input type="text" name="userId" class="form-control" placeholder="User Id" maxlength="20" required autofocus>
-	      	    <input type="password" name="userPass" class="form-control" placeholder="Password" maxlength="20" required>
+	       		<input type="text" name="userId" class="form-control" placeholder="User Id" maxlength="12" required autofocus>
+	      	    <input type="password" name="userPass" class="form-control" placeholder="Password" maxlength="12" required>
 	     	    <button class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Login">Sign in</button>
       		</form>
 		</div> <!-- container -->
+		<c:if test="${result != 0}">
+			<div class="text-center" style="color:#ff0000; font-size:125%;">入力されたUser Id、またはPasswordが違います。</div>
+		</c:if>
 		<br><br>
 		<div class="container" style="background-color:#FFF">
 			<h1 class="text-center">新規登録はこちらから！</h1><br>

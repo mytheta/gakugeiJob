@@ -124,7 +124,7 @@ public class EnterpriseDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnEnterpriseId = cci("enterprise_id", "enterprise_id", null, null, true, "enterpriseId", Integer.class, true, true, "INT UNSIGNED", 10, 0, null, false, null, null, null, "enterpriseOfferList", null);
-    protected final ColumnInfo _columnUserId = cci("user_id", "user_id", null, null, false, "userId", String.class, false, false, "VARCHAR", 12, 0, null, false, null, null, "login", null, null);
+    protected final ColumnInfo _columnUserId = cci("user_id", "user_id", null, null, true, "userId", String.class, false, false, "VARCHAR", 12, 0, null, false, null, null, "login", null, null);
     protected final ColumnInfo _columnName = cci("name", "name", null, null, true, "name", String.class, false, false, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnFoundingDate = cci("founding_date", "founding_date", null, null, false, "foundingDate", String.class, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnFounderName = cci("founder_name", "founder_name", null, null, false, "founderName", String.class, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null);

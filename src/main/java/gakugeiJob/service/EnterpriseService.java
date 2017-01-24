@@ -93,10 +93,19 @@ public class EnterpriseService {
 		enterpriseOfferBhv.insert(enterpriseOffer);
 	}
 
-	public void update(int enterpriseId, String userId, String fixedUserId, String name,
+	public int update(int enterpriseId, String userId, String fixedUserId, String name,
 			String foundingDate, String founderName,
 			String address, String capital, String presidentName, String numOfEmployees, String business,
 			String phoneNumber, String url, String oneThing, String mailAddress) {
+
+		// UserIdが使われているかチェック使われていたら-1を返す
+		LoginCB loginCB = new LoginCB();
+		loginList = loginBhv.selectList(loginCB);
+		for (Login logincheck : loginList) {
+			if (logincheck.getUserId().equals(fixedUserId) && !(userId.equals(fixedUserId))) {
+				return -1;
+			}
+		}
 		Enterprise enterprise = new Enterprise();
 		// 一度、新しいカラムをLoginテーブルにinsert
 		Login login = new Login();
@@ -140,6 +149,8 @@ public class EnterpriseService {
 		enterprise.setOneThing(oneThing);
 		enterprise.setMailAddress(mailAddress);
 		enterpriseBhv.update(enterprise);
+		// 正常な処理
+		return 0;
 	}
 
 	public Enterprise select(int enterpriseId) {

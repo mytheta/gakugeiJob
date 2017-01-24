@@ -8,7 +8,6 @@
  	 	<h2 class="text-center page-header">全企業情報</h2>
 		
 		<div class="container">
-		<form name="viewEnterpriseActionForm" class="form-horizontal" action="/gakugeiJob/admin/viewEnterprise/" method="POST">
 			<c:forEach items="${enterpriseList}" var="enterprise">
 			<c:forEach items="${loginList}" var="login">
 				<c:if test="${enterprise.userId == login.userId}">
@@ -18,16 +17,20 @@
 					　　　&nbsp;&nbsp;&nbsp;&nbsp;ユーザーID　：　<c:out value="${enterprise.userId}" /><br>
 					</div>
 					<div class="col-sm-2">
-						<input type="hidden" value="${enterprise.userId}" name="userId" />
-						<button class="btn btn-warning" type="submit" name="edit" value="Edit">
-						<a href="/gakugeiJob/admin/editEnterprise/?userId=<c:out value="${enterprise.userId}" />"  style="color:#FFF">パスワード変更</a>
-						</button><br><br>
-						<button class="btn btn-danger" type="submit" name="delete" value="Delete">企業削除</button>
+						<form name="viewEnterpriseActionForm" class="form-horizontal" action="/gakugeiJob/admin/editEnterprise/" method="POST">
+							<input type="hidden" value="${enterprise.userId}" name="userId" />
+						<button class="btn btn-warning" type="submit" name="index" value="Edit">パスワード変更</button>
+						<br><br>
+						</form>
+						
+						<form name="viewEnterpriseActionForm" class="form-horizontal" action="/gakugeiJob/admin/viewEnterprise/" method="POST">
+							<input type="hidden" value="${enterprise.userId}" name="userId" />
+							<button class="btn btn-danger" type="submit" name="delete" value="Delete">企業削除</button>
+						</form>
 					</div>
 				</c:if>
 			</c:forEach>
 			</c:forEach>
-		</form>
       	</div> <!-- container -->
 	</tiles:put>
 </tiles:insert>

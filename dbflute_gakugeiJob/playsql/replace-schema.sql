@@ -5,7 +5,7 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 CREATE TABLE enterprise
 (
 	enterprise_id int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'enterprise_id',
-	user_id varchar(12) COMMENT 'user_id',
+	user_id varchar(12) binary NOT NULL COMMENT 'user_id',
 	name varchar(50) NOT NULL COMMENT 'name',
 	founding_date varchar(20) COMMENT 'founding_date',
 	founder_name varchar(20) COMMENT 'founder_name',
@@ -24,7 +24,7 @@ CREATE TABLE enterprise
 CREATE TABLE school
 (
 	school_id int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'school_id', 
-	user_id varchar(12) COMMENT 'user_id',
+	user_id varchar(12) binary NOT NULL COMMENT 'user_id',
 	name varchar(50) NOT NULL COMMENT 'name',
 	kinds varchar(20) COMMENT 'kinds',
 	phone_number varchar(12) NOT NULL COMMENT 'phone_number',
@@ -37,7 +37,7 @@ CREATE TABLE school
 CREATE TABLE student
 (
 	student_id int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'student_id',
-	user_id varchar(12) NOT NULL COMMENT 'user_id',
+	user_id varchar(12) binary NOT NULL COMMENT 'user_id',
 	name varchar(10) COMMENT 'name',
 	birthday datetime COMMENT 'birthday',
 	sex int(1) COMMENT 'sex',
@@ -49,7 +49,7 @@ CREATE TABLE student
 
 CREATE TABLE admin
 (
-	user_id varchar(12) NOT NULL COMMENT 'user_id',
+	user_id varchar(12) binary NOT NULL COMMENT 'user_id',
 	admin_pass1 varchar(256) NOT NULL COMMENT 'admin_pass1',
 	admin_pass2 varchar(256) NOT NULL COMMENT 'admin_pass2',
 	PRIMARY KEY (user_id)
@@ -57,7 +57,7 @@ CREATE TABLE admin
 
 CREATE TABLE login
 (
-	user_id varchar(12) NOT NULL COMMENT 'user_id',
+	user_id varchar(12) binary NOT NULL COMMENT 'user_id',
 	user_pass varchar(256) NOT NULL COMMENT 'user_pass',
 	role int(1) unsigned NOT NULL COMMENT 'role',
 	PRIMARY KEY (user_id)

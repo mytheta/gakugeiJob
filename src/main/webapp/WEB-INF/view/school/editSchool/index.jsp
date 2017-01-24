@@ -40,7 +40,7 @@
 					<div class="col-sm-3"><input type="text" class="form-control" name="oneThing" maxlength="100" value="${school.oneThing}" placeholder="100文字以内"></div>
 			</div>
 		    <div class="col-sm-offset-2 col-sm-9 text-right"><br>
-	     	    <button type="submit" class="btn btn-lg btn-default" name="edit" value="Edit">編集</button>
+	     	    <button type="submit" class="btn btn-lg btn-success" name="edit" value="Edit">編集</button>
 	     	</div>
 	    </form>
       	</div> <!-- container -->

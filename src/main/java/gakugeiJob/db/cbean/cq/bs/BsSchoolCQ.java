@@ -173,14 +173,14 @@ public class BsSchoolCQ extends AbstractBsSchoolCQ {
 
     /** 
      * Add order-by as ascend. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @return this. (NotNull)
      */
     public BsSchoolCQ addOrderBy_UserId_Asc() { regOBA("user_id"); return this; }
 
     /**
      * Add order-by as descend. <br />
-     * user_id: {IX, VARCHAR(12), FK to login}
+     * user_id: {IX, NotNull, VARCHAR(12), FK to login}
      * @return this. (NotNull)
      */
     public BsSchoolCQ addOrderBy_UserId_Desc() { regOBD("user_id"); return this; }

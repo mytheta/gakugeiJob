@@ -1,5 +1,8 @@
 package gakugeiJob.action.student;
 
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
 import javax.annotation.Resource;
 
 import org.seasar.dbflute.cbean.ListResultBean;
@@ -29,6 +32,8 @@ public class AddEnterpriseOfferAction {
 	
 	@Resource
 	StudentDto studentDto;
+	
+	public ArrayList<String> errorMessages;
 	
 	public ListResultBean<EnterpriseAplicant> enterpriseAplicantList;
 	public ListResultBean<EnterpriseOffer> enterpriseOfferList;
@@ -77,6 +82,34 @@ public class AddEnterpriseOfferAction {
 	@Execute(validator = false)
 	@StudentAuth
 	public String offer(){
+		int i = 0;
+    	//エラーチェック変数
+    	int result = 0;
+    	errorMessages = new ArrayList<String>();
+    	
+    	//以下は形式チェック
+    	//タイトルに対するエラー遷移
+    	if(!(addEnterpriseOfferForm.title == null || addEnterpriseOfferForm.title.length() == 0)){
+    		if(!(Pattern.compile(".{1,100}", Pattern.DOTALL).matcher(addEnterpriseOfferForm.title)).matches()){
+    		result = -1;
+    		errorMessages.add("そのタイトルは正しい形式ではありません。");
+    		i++;
+    	}
+    	}
+    	//コンテンツに対するエラー遷移
+    	if(!(addEnterpriseOfferForm.content == null || addEnterpriseOfferForm.content.length() == 0)){
+    		if(!(Pattern.compile(".{1,400}", Pattern.DOTALL).matcher(addEnterpriseOfferForm.content)).matches()){
+    			result = -1;
+    			errorMessages.add("その応募内容は正しい形式ではありません。");
+    			i++;
+    		}
+    	}
+    	
+    	//フォームに入力されたものが正しくなかったらエラー遷移
+    	if(result != 0){
+    		return "error.jsp";
+    	}
+		
 		enterpriseOfferService.insertEnterpriseAplicant(Integer.parseInt(addEnterpriseOfferForm.jobOfferId), studentDto.studentId, addEnterpriseOfferForm.title, addEnterpriseOfferForm.content);
 		return "confirm.jsp";
 	}

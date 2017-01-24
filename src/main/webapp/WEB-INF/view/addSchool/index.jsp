@@ -15,22 +15,22 @@
  	 	</div>
 
  	 	<div class="container">
- 	 	<h1 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>登録情報<br>入力項目に適していないとき、またユーザーIDが既に使われている場合エラーになります。</small></h1><br>
+ 	 	<h1 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>登録情報（●印は入力必須項目）<br>入力項目に適していないとき、またユーザーIDが既に使われている場合エラーになります。</small></h1><br>
         	<form name="schoolActionForm" class="form-horizontal" action="/gakugeiJob/addSchool/" method="POST">
 				<div class="form-group">
-				<label class="col-sm-2 control-label">ユーザーID:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" required autofocus></div>
+				<label class="col-sm-2 control-label">●ユーザーID:</label>
+					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" pattern="[a-zA-Z0-9]+"  required autofocus></div>
 				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-2 control-label">ユーザーパスワード:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="userPass" maxlength="12" required></div>
-				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
+				<label class="col-sm-2 control-label">●ユーザーパスワード:</label>
+					<div class="col-sm-3"><input type="text" class="form-control" name="userPass" minlength="6" maxlength="12" pattern="[a-zA-Z0-9]+"  required></div>
+				<div class="col-sm-7"><p class="help-block">半角英数字6文字以上12文字以内で入力してください。</p></div>
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-2 control-label">学校名:</label>
+				<label class="col-sm-2 control-label">●学校名:</label>
 					<div class="col-sm-10"><input type="text" class="form-control" name="name" maxlength="50" placeholder="50文字以内"required></div>
 				</div>
 
@@ -40,14 +40,14 @@
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-2 control-label">電話番号:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" placeholder="12文字以内" required> </div>
+				<label class="col-sm-2 control-label">●電話番号:</label>
+					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" pattern="[0-9]{1,12}" placeholder="12文字以内" required> </div>
 					<div class="col-sm-7"><p class="help-block">ハイフン無しで入力してください。</p></div>
 				</div>
 
 				<div class="form-group">
 				<label class="col-sm-2 control-label">学校URL:</label>
-					<div class="col-sm-10"><input type="text" class="form-control" name="url" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-10"><input type="text" class="form-control" name="url" maxlength="100" pattern="https?://.+" placeholder="100文字以内"> </div>
 				</div>
 
 				<div class="form-group">
@@ -56,8 +56,8 @@
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-2 control-label">メールアドレス:</label>
-					<div class="col-sm-10"><input type="text" class="form-control" name="mailAddress" maxlength="100" placeholder="100文字以内" required> </div>
+				<label class="col-sm-2 control-label">●メールアドレス:</label>
+					<div class="col-sm-10"><input type="text" class="form-control" name="mailAddress" maxlength="100" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="100文字以内" required> </div>
 				</div>
 
 				<div class="form-group">

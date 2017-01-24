@@ -14,7 +14,7 @@
  	    		勤務先名: <c:out value="${enterpriseOffer.officeName}" /><br><br>
  	    		勤務地住所: <c:out value="${enterpriseOffer.address}" />
  	    	</div>
-  			<div class="panel-body" style="word-break: break-word"><c:out value="${enterpriseOffer.description}" /></div>
+  			<div class="panel-body" style="word-break: break-word"><pre style="background-color:#FFF; border:0;"><c:out value="${enterpriseOffer.description}" /></pre></div>
    			<div class="panel-footer text-right text-muted">キニナル〜数: <c:out value="${enterpriseOffer.favo}" />&nbsp;&nbsp;&nbsp;
   			登録日: <c:out value="${enterpriseOffer.registrationDate}" /></div>
 		</div>
