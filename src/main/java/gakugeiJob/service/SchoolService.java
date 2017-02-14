@@ -112,7 +112,7 @@ public class SchoolService {
 		loginBhv.update(login);
 	}
 
-	public void update(int schoolId, String userId, String fixedUserId, String name, String kinds, String phoneNumber, String mailAddress, String url, String oneThing){
+	public int update(int schoolId, String userId, String fixedUserId, String name, String kinds, String phoneNumber, String mailAddress, String url, String oneThing){
 		School school = new School();
 		//一度、新しいカラムをLoginテーブルにinsert
 		Login login = new Login();
@@ -144,6 +144,8 @@ public class SchoolService {
 		school.setUrl(url);
 		school.setOneThing(oneThing);
 		schoolBhv.update(school);
+
+		return 0;
 	}
 
 	public void deleteSchool(String userId){

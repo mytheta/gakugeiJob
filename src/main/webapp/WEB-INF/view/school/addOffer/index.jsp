@@ -19,7 +19,7 @@
 
 				<div class="form-group">
 				<label class="col-sm-2 control-label">●給与情報:</label>
-					<div class="col-sm-7"><input type="text" class="form-control" name="salary" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-7"><input type="text" class="form-control" name="salary" maxlength="100" placeholder="100文字以内" required autofocus> </div>
 				</div>
 
 				<div class="form-group">

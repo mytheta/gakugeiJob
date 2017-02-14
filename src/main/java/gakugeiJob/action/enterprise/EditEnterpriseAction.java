@@ -111,7 +111,7 @@ public class EditEnterpriseAction {
         }
         //代表取締役者氏名に対するエラー遷移
 		if (!(editEnterpriseForm.presidentName == null || editEnterpriseForm.presidentName.length() == 0)) {
-            if(!(editEnterpriseForm.founderName.matches(".{1,20}"))){
+			if (!(editEnterpriseForm.presidentName.matches(".{1,20}"))) {
                 result = -1;
                 errorMessages.add("その代表取締役者氏名は正しい形式ではありません。");
             }

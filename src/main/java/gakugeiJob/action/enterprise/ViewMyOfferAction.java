@@ -14,7 +14,6 @@ import gakugeiJob.db.exentity.EnterpriseOffer;
 import gakugeiJob.db.exentity.Student;
 import gakugeiJob.dto.EnterpriseDto;
 import gakugeiJob.form.enterprise.EnterpriseOfferForm;
-import gakugeiJob.helper.DateHelper;
 import gakugeiJob.service.EnterpriseOfferService;
 import gakugeiJob.service.EnterpriseService;
 import gakugeiJob.service.StudentService;
@@ -44,7 +43,6 @@ public class ViewMyOfferAction {
 	public ListResultBean<EnterpriseAplicant> studentOfferList;
 	public ListResultBean<Student> studentList;
 	public Student student;
-	public String birthday;
 	public int enterpriseId;
 	public int jobOfferId;
 
@@ -75,10 +73,6 @@ public class ViewMyOfferAction {
 		jobOfferId = Integer.parseInt(enterpriseOfferForm.jobOfferId);
 		enterpriseFavoList = enterpriseOfferService.selectAllFavo();
 		studentList = studentService.selectAll();
-		for (Student student : studentList) {
-			if (student.getBirthday() != null)
-				birthday = DateHelper.formatYMD1(student.getBirthday());
-		}
 		return "favo.jsp";
 	}
 
@@ -88,10 +82,6 @@ public class ViewMyOfferAction {
 		jobOfferId = Integer.parseInt(enterpriseOfferForm.jobOfferId);
 		studentOfferList = enterpriseOfferService.selectAplicant(jobOfferId);
 		studentList = studentService.selectAll();
-		for (Student student : studentList) {
-			if (student.getBirthday() != null)
-				birthday = DateHelper.formatYMD1(student.getBirthday());
-		}
 		return "offer.jsp";
 	}
 

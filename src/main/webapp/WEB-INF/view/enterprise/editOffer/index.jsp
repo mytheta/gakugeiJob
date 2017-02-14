@@ -15,65 +15,65 @@
 		<form name="editOfferActionForm" class="form-horizontal" action="/gakugeiJob/enterprise/editOffer/" method="POST">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">●勤務先名:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="officeName" maxlength="50" value="${enterpriseOffer.officeName}" required autofocus></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="officeName" maxlength="50" value=<c:out value="${enterpriseOffer.officeName}" /> required autofocus></div>
 				<div class="col-sm-7"><p class="help-block">50文字以内で入力してください。</p></div>
 			</div>
 			
 			<div class="form-group">
 				<label class="col-sm-2 control-label">●仕事内容:</label>
 				<div class="col-sm-7"><p class="help-block">1000文字以内で入力してください。</p></div>
-				<div class="col-xs-offset-2"><textarea class="form-control" name="description" maxlength="1000" required autofocus>${enterpriseOffer.description}</textarea></div>
+				<div class="col-xs-offset-2"><textarea class="form-control" name="description" maxlength="1000" required autofocus><c:out value="${enterpriseOffer.description}" /></textarea></div>
 				</div>
 
 				<div class="form-group">
 				<label class="col-sm-2 control-label">●給与情報:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="salary" value="${enterpriseOffer.salary}" maxlength="100" placeholder="100文字以内" required> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="salary" maxlength="100" placeholder="100文字以内" required value=<c:out value="${enterpriseOffer.salary}"/>> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">経験資格:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="qualification" value="${enterpriseOffer.qualification}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="qualification" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.qualification}"/>> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務先住所:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="address" value="${enterpriseOffer.address}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="address" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.address}"/> > </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">最寄駅:</label>
-					<div class="col-sm-10"><input type="text" class="form-control" name="station" value="${enterpriseOffer.station}" maxlength="100"  placeholder="100文字以内"> </div>
+					<div class="col-sm-10"><input type="text" class="form-control" name="station" maxlength="100"  placeholder="100文字以内" value=<c:out value="${enterpriseOffer.station}"/>> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務地:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="address" value="${enterpriseOffer.address}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="address" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.address}"/>> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務期間:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="period" value="${enterpriseOffer.period}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="period" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.period}"/>> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">勤務時間:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="workingTime" value="${enterpriseOffer.workingTime}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="workingTime" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.workingTime}"/>> </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">休日・休暇:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="holiday" value="${enterpriseOffer.holiday}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="holiday" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.holiday}"/> > </div>
 				</div>
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">待遇・福利厚生:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="welfare" value="${enterpriseOffer.welfare}" maxlength="100" placeholder="100文字以内" > </div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="welfare" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.welfare}"/> > </div>
 				</div>
 				
 				
 				<div class="form-group">
 				<label class="col-sm-2 control-label">ひとこと:</label>
-					<div class="col-sm-10"><input type="text" class="form-control" name="oneThing" value="${enterpriseOffer.oneThing}" maxlength="100" placeholder="100文字以内"> </div>
+					<div class="col-sm-10"><input type="text" class="form-control" name="oneThing" maxlength="100" placeholder="100文字以内" value=<c:out value="${enterpriseOffer.oneThing}"/>> </div>
 				</div>
 				
 			<div class="col-sm-offset-2 col-sm-9 text-right"><br>

@@ -13,7 +13,12 @@
  	 		<c:if test="${favo.studentId == student.studentId && favo.schoolOfferId == schoolOfferId}">
 					<div class="well col-sm-offset-2 col-sm-7">
 						　　　　　　　氏名：　<c:out value="${student.name}" /><br>
-						　　　　　　　性別：　<c:out value="${student.sex}" /><br>
+						<c:if test="${student.sex==0}">
+						　　　　　　　性別：　男<br>
+						</c:if>
+						<c:if test="${student.sex==1}">
+						　　　　　　　性別：　女<br>
+						</c:if>
 						　　　　　　誕生日：　<c:out value="${student.birthday}" /><br>
 						　　メールアドレス：　<c:out value="${student.mailAddress}" /><br>
 					</div>

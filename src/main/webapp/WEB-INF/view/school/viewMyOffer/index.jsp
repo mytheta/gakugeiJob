@@ -30,6 +30,8 @@
 				<input type="hidden" value="${schoolOffer.schoolOfferId}" name="schoolOfferId"/>
 				<button class="btn btn-lg btn-danger" type="submit" name="delete" value="Delete">削除</button>&nbsp;&nbsp;
 			</form>
+			<br>
+			<br>
 		</div><br>
 
 		</c:if>

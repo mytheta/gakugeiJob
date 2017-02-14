@@ -18,7 +18,7 @@ public class DeleteStudentOfferAction {
 	@Resource
 	protected SchoolOfferService schoolOfferService;
 
-	@Execute(input ="/error/?redirect=true")
+	@Execute(validator=false)
 	@SchoolAuth
     public String delete(){
 		schoolOfferService.deleteAplicant(Integer.parseInt(deleteStudentOfferForm.schoolOfferId),Integer.parseInt(deleteStudentOfferForm.studentId) );

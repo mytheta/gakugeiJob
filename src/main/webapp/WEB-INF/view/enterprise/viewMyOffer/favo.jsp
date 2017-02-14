@@ -23,7 +23,7 @@
 			            性別：　<br>
 			</c:otherwise>
 			</c:choose> 
-						誕生日      ：　<c:out value="${birthday}" /><br>
+						誕生日      ：　<c:out value="${student.birthday}" /><br>
 						メールアドレス：　<c:out value="${student.mailAddress}" /><br>
 					</div>
 					

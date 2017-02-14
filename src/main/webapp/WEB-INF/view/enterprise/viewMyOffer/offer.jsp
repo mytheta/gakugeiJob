@@ -8,7 +8,7 @@
  	 	<c:forEach items="${studentOfferList}" var="offer">
  	 	<c:forEach items="${studentList}" var="student">
  	 	<c:if test="${offer.studentId == student.studentId}">
- 	 	<div class="panel panel-primary"style="word-break: break-word">
+ 	 	<div class="panel panel-default"style="word-break: break-word">
  	    	<div class="panel-heading">
  	    		学生氏名: <c:out value="${student.name}" /><br>
 			<c:choose>
@@ -22,7 +22,7 @@
 			            性別：　<br>
 			</c:otherwise>
 			</c:choose> 
-						誕生日      ：　<c:out value="${birthday}" /><br>
+						誕生日      ：　<c:out value="${student.birthday}" /><br>
 						住所        : <c:out value="${student.address}" /><br>
 						電話番号     : <c:out value="${student.phoneNumber}" /><br>
 						メールアドレス：　<c:out value="${student.mailAddress}" />

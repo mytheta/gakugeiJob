@@ -11,14 +11,14 @@
 		<form name="editStudentActionForm" class="form-horizontal" action="/gakugeiJob/student/editStudent/" method="POST">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">ユーザーID:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" value="${student.userId}" required autofocus></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="userId" maxlength="12" value="<c:out value="${student.userId}" />" required autofocus></div>
 				<div class="col-sm-7"><p class="help-block">半角英数字12文字以内で入力してください。</p></div>
 			</div>
 			<br>
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">氏名:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="name" maxlength="10" value="${student.name}" required></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="name" maxlength="10" value="<c:out value="${student.name}" />" required></div>
 				<div class="col-sm-7"><p class="help-block">10文字以内で入力してください。</p></div>
 			</div>
 			<br>
@@ -26,7 +26,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">誕生日:</label>
 				<div class="col-sm-3">
-				<input type="date" name="birthday" class="form-control" value="${birthday}" required></div>
+				<input type="date" name="birthday" class="form-control" value=<c:out value="${birthday}" /> required></div>
 				<div class="col-sm-7"><p class="help-block">yyyy年mm月dd日という表記で入力してください。</p></div>
 			</div>
 
@@ -78,14 +78,14 @@
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">メールアドレス:</label>
-					<div class="col-sm-6"><input type="text" class="form-control" name="mailAddress" maxlength="50" value="${student.mailAddress}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required></div>
+					<div class="col-sm-6"><input type="text" class="form-control" name="mailAddress" maxlength="50" value="<c:out value="${student.mailAddress}" />" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required></div>
 				<div class="col-sm-4"><p class="help-block">50文字以内で入力してください。</p></div>
 			</div>
 			<br>
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">電話番号:</label>
-					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" value="${student.phoneNumber}" pattern="[0-9]{1,12}" required></div>
+					<div class="col-sm-3"><input type="text" class="form-control" name="phoneNumber" maxlength="12" value="<c:out value="${student.phoneNumber}" />" pattern="[0-9]{1,12}" required></div>
 				<div class="col-sm-7"><p class="help-block">ハイフン無しで入力してください。</p></div>
 			</div>
 
